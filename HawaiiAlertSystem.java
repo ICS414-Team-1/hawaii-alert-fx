@@ -9,6 +9,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -125,20 +127,43 @@ public class HawaiiAlertSystem extends Application {
       Text scenetitle = new Text("Please select");
       initTop.getChildren().add(scenetitle);
       border.setTop(initTop);
+      
+      
         
       TitledPane t1 = new TitledPane();
-      t1.setText("t1");
+      t1.setText("Choices: ");
       GridPane grid = new GridPane();
       grid.setPadding(new Insets(5, 5, 5, 5));
-      grid.add(new Button("B1"), 1, 0);
-      grid.add(new Button("B2"), 2, 0);
-      grid.add(new Button("B3"), 3, 0);
-      grid.add(new Button("B4"), 4, 0);
-      grid.add(new Button("B5"), 1, 1);
-      grid.add(new Button("B6"), 2, 1);
-      grid.add(new Button("B7"), 3, 1);
-      grid.add(new Button("B8"), 4, 1);
+      ToggleGroup tg = new ToggleGroup();
+      ToggleButton tg1 = new ToggleButton("B1");
+      ToggleButton tg2 = new ToggleButton("B2");
+      ToggleButton tg3 = new ToggleButton("B3");
+      ToggleButton tg4 = new ToggleButton("B4");
+      ToggleButton tg5 = new ToggleButton("B5");
+      ToggleButton tg6 = new ToggleButton("B6");
+      ToggleButton tg7 = new ToggleButton("B7");
+      ToggleButton tg8 = new ToggleButton("B8");
+      tg1.setToggleGroup(tg);
+      tg2.setToggleGroup(tg);
+      tg3.setToggleGroup(tg);
+      tg4.setToggleGroup(tg);
+      tg5.setToggleGroup(tg);
+      tg6.setToggleGroup(tg);
+      tg7.setToggleGroup(tg);
+      tg8.setToggleGroup(tg);
+
+
+      grid.add(tg1, 1, 0);
+      grid.add(tg2, 2, 0);
+      grid.add(tg3, 3, 0);
+      grid.add(tg4, 4, 0);
+      grid.add(tg5, 1, 1);
+      grid.add(tg6, 2, 1);
+      grid.add(tg7, 3, 1);
+      grid.add(tg8, 4, 1);
+      grid.setAlignment(Pos.CENTER);
       border.setCenter(grid);
+      // border.setCenter(grid);
       content1.getChildren().add(border);
       t1.setContent(content1);
       TitledPane t2 = new TitledPane("T2", new Button("A2"));
