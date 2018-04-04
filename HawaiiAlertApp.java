@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Accordion;
 import javafx.scene.Group;
 import javafx.scene.control.TitledPane;
+import javafx.fxml.LoadException;
 /**
  *
  *
@@ -95,7 +96,9 @@ public class HawaiiAlertApp extends Application {
           @Override
           public void handle(ActionEvent event) {
             try {
-              Parent root = FXMLLoader.load(getClass().getResource("fxml/Alert.fxml"));
+              FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Alert.fxml"));
+              loader.setController(new FXMLAlertController());
+              Parent root = loader.load();
               Scene sceneTest = new Scene(root, 800, 600);
               primaryStage.setScene(sceneTest);
             }
