@@ -19,6 +19,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javafx.scene.control.Accordion;
+import javafx.scene.Group;
+import javafx.scene.control.TitledPane;
 /**
  *
  * 
@@ -97,6 +100,7 @@ public class HawaiiAlertSystem extends Application {
                 scenetitle.setFill(Color.WHITE);
                 rightBox.setStyle("-fx-background-color: #d10000");
                 leftBox.setStyle("-fx-background-color: #d10000");
+                border.setCenter(choices());
             }
         });
         grid.add(alertButton, 1, 2);
@@ -109,7 +113,40 @@ public class HawaiiAlertSystem extends Application {
         primaryStage.setScene(scene);
 
 
-
+    }
+    
+    Accordion choices() { // might change to a scene return value
+   
+      VBox content1 = new VBox();
+      BorderPane border = new BorderPane();
+      HBox initTop = new HBox();
+      initTop.setAlignment(Pos.CENTER);
+      initTop.setPadding(new Insets(20, 10, 20, 10));
+      Text scenetitle = new Text("Please select");
+      initTop.getChildren().add(scenetitle);
+      border.setTop(initTop);
+        
+      TitledPane t1 = new TitledPane();
+      t1.setText("t1");
+      GridPane grid = new GridPane();
+      grid.setPadding(new Insets(5, 5, 5, 5));
+      grid.add(new Button("B1"), 1, 0);
+      grid.add(new Button("B2"), 2, 0);
+      grid.add(new Button("B3"), 3, 0);
+      grid.add(new Button("B4"), 4, 0);
+      grid.add(new Button("B5"), 1, 1);
+      grid.add(new Button("B6"), 2, 1);
+      grid.add(new Button("B7"), 3, 1);
+      grid.add(new Button("B8"), 4, 1);
+      border.setCenter(grid);
+      content1.getChildren().add(border);
+      t1.setContent(content1);
+      TitledPane t2 = new TitledPane("T2", new Button("A2"));
+      TitledPane t3 = new TitledPane("T3", new Button("A3"));
+      
+      Accordion accordion = new Accordion();
+      accordion.getPanes().addAll(t1, t2, t3);
+      return accordion;
     }
 
     /**
