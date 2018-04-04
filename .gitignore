@@ -13,3 +13,4 @@ HelloFx.java
 .idea/codeStyles/codeStyleConfig.xml
 .idea/jsLinters/eslint.xml
 .idea/misc.xml
+*.class
