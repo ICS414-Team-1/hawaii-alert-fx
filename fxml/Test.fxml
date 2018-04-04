@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane>
+  <top>
+    <HBox alignment="center" style="-fx-background-color: green;">
+    <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+    <Text text="Test" style="-fx-fill: white;">
+      <font>
+        <Font name="Tahoma" size="80" />
+      </font>
+    </Text>
+    </HBox>
+  </top>
+  <left>
+    <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
+    </HBox>
+  </left>
+  <right>
+    <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
+    </HBox>
+  </right>
+  <center>
+    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="25"
+      style="-fx-background-color: white;">
+    <padding><Insets top="80" right="25" bottom="25" left="25"/></padding>
+    <HBox spacing="10" alignment="bottom_right"
+            GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button text="Sign In"/>
+    </HBox>
+
+    </GridPane>
+  </center>
+</BorderPane>
