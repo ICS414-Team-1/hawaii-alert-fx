@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="border">
+  <top>
+    <HBox alignment="center" style="-fx-background-color: #38cdff;">
+      <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+    <Text text="Hawaii Alert System">
+      <font>
+        <Font name="Tahoma" size="80" />
+      </font>
+    </Text>
+    </HBox>
+  </top>
+  <left>
+    <VBox style="-fx-background-color: #ededed;-fx-pref-width: 100px;">
+    </VBox>
+  </left>
+  <right>
+    <VBox style="-fx-background-color: #ededed;-fx-pref-width: 100px;">
+    </VBox>
+  </right>
+  <center>
+    <GridPane xmlns:fx="http://javafx.com/fxml"
+      style="-fx-background-color: #ededed;" hgap="10" vgap="25">
+    <padding><Insets top="80" right="25" bottom="25" left="25"/></padding>
+    <Text text="Please select a choice:"
+      GridPane.columnIndex="0" GridPane.rowIndex="0"
+      GridPane.columnSpan="2" GridPane.rowSpan="1">
+      <font>
+        <Font name="Tahoma" size="30" />
+      </font>
+    </Text>
+    <Button text="Test" prefHeight="80" prefWidth="400"
+      style="-fx-font: 40 Tahoma; -fx-base: #00870d"
+      GridPane.columnIndex="0" GridPane.rowIndex="2"
+      onAction="#handleTestButtonAction"/>
+    <Button text="Alert" prefHeight="80" prefWidth="400"
+      style="-fx-font: 40 Tahoma; -fx-base: #d10000"
+      GridPane.columnIndex="1" GridPane.rowIndex="2"
+      onAction="#handleAlertButtonAction"/>
+    </GridPane>
+  </center>
+</BorderPane>

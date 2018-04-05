@@ -7,9 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-public class FXMLAlertController {
+public class FXMLTestController {
     private Stage primaryStage;
-    public FXMLAlertController(Stage primaryStage) {
+    public FXMLTestController(Stage primaryStage) {
       this.primaryStage = primaryStage;
     }
     @FXML private Text actiontarget;
@@ -27,7 +27,7 @@ public class FXMLAlertController {
          this.primaryStage.show();
        }
        catch(Exception e) {
-         System.out.println("Alert Controller: " + e);
+         System.out.println("Test Controller: " + e);
        }
     }
 
