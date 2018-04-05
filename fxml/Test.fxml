@@ -8,14 +8,16 @@
 
 <BorderPane>
   <top>
-    <HBox alignment="center" style="-fx-background-color: green;">
-    <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+    <VBox alignment="center" style="-fx-background-color: green;">
+      <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
     <Text text="Test" style="-fx-fill: white;">
       <font>
         <Font name="Tahoma" size="80" />
       </font>
     </Text>
-    </HBox>
+    <Button text="Back to Main"
+      onAction="#handleBackButtonAction" />
+    </VBox>
   </top>
   <left>
     <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
@@ -29,10 +31,6 @@
     <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="25"
       style="-fx-background-color: white;">
     <padding><Insets top="80" right="25" bottom="25" left="25"/></padding>
-    <HBox spacing="10" alignment="bottom_right"
-            GridPane.columnIndex="1" GridPane.rowIndex="4">
-            <Button text="Sign In"/>
-    </HBox>
 
     </GridPane>
   </center>

@@ -8,14 +8,16 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="border">
   <top>
-    <HBox alignment="center" style="-fx-background-color: #d10000;">
+    <VBox alignment="center" style="-fx-background-color: #d10000;">
       <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
     <Text text="Alert" style="-fx-fill: white;">
       <font>
         <Font name="Tahoma" size="80" />
       </font>
     </Text>
-    </HBox>
+    <Button text="Back to Main"
+      onAction="#handleBackButtonAction" />
+    </VBox>
   </top>
   <left>
     <HBox style="-fx-background-color: #d10000;-fx-pref-width: 100px;">
