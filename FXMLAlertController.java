@@ -38,7 +38,6 @@ public class FXMLAlertController {
 
     @FXML protected void changeTitle(ActionEvent event) {
         alertType = ((ToggleButton)event.getSource()).getText();
-        t1.setText(alertType);
-        System.out.println(alertType); // DEBUG
+        t1.setText("Alert Type " + alertType);
     }
 }

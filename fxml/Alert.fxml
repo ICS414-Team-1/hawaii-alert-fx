@@ -33,7 +33,7 @@
         <center>
             <Accordion expandedPane="$t1">
                 <panes>
-                    <TitledPane fx:id="t1" text="t1">
+                    <TitledPane fx:id="t1" text="Alert Type">
                         <content>
                             <BorderPane>
                                 <top>
@@ -47,7 +47,7 @@
                                         style="-fx-background-color: white;">
                                         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
                                         <fx:define>
-                                            <ToggleGroup fx:id="toggleGroup1"/>  
+                                            <ToggleGroup fx:id="toggleGroup1"/>
                                         </fx:define>
                                         <ToggleButton toggleGroup="$toggleGroup1" text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
                                         <ToggleButton toggleGroup="$toggleGroup1" text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
