@@ -5,64 +5,70 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToggleButton?>
+
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="border">
-  <top>
-    <VBox alignment="center" style="-fx-background-color: #d10000;">
-      <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-    <Text text="Alert" style="-fx-fill: white;">
-      <font>
-        <Font name="Tahoma" size="80" />
-      </font>
-    </Text>
-    <Button text="Back to Main"
-      onAction="#handleBackButtonAction" />
-    </VBox>
-  </top>
-  <left>
-    <HBox style="-fx-background-color: #d10000;-fx-pref-width: 100px;">
-    </HBox>
-  </left>
-  <right>
-    <HBox style="-fx-background-color: #d10000;-fx-pref-width: 100px;">
-    </HBox>
-  </right>
-  <center>
-    <Accordion>
-      <panes>
-        <TitledPane text="t1">
-          <content>
-            <BorderPane >
-              <top>
-                <HBox alignment="center" style="-fx-background-color: white;">
-                  <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-                  <Text fx:id="actiontarget" text="Please select:" />
-                </HBox>
-              </top>
-              <center>
-                <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
-                  style="-fx-background-color: white;">
-                <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
-                <Button text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Button text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-                <Button text="B3" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
-                <Button text="B4" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
-                <Button text="B5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Button text="B6" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                <Button text="B7" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-                <Button text="B8" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-                </GridPane>
-              </center>
-            </BorderPane>
-          </content>
-        </TitledPane>
-        <TitledPane text="t2">
-          <Button text="A3"/>
-        </TitledPane>
-        <TitledPane text="t3">
-          <Button text="A3"/>
-        </TitledPane>
-      </panes>
-    </Accordion>
-  </center>
-</BorderPane>
+    <top>
+        <VBox alignment="center" style="-fx-background-color: #d10000;">
+            <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+            <Text text="Alert" style="-fx-fill: white;">
+                <font>
+                    <Font name="Tahoma" size="80" />
+                </font>
+            </Text>
+            <Button text="Back to Main"
+                onAction="#handleBackButtonAction" />
+            </VBox>
+        </top>
+        <left>
+            <HBox style="-fx-background-color: #d10000;-fx-pref-width: 100px;">
+            </HBox>
+        </left>
+        <right>
+            <HBox style="-fx-background-color: #d10000;-fx-pref-width: 100px;">
+            </HBox>
+        </right>
+        <center>
+            <Accordion expandedPane="$t1">
+                <panes>
+                    <TitledPane fx:id="t1" text="t1">
+                        <content>
+                            <BorderPane>
+                                <top>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+                                        <Text fx:id="actiontarget" text="Please select:" />
+                                    </HBox>
+                                </top>
+                                <center>
+                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                        style="-fx-background-color: white;">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        <fx:define>
+                                            <ToggleGroup fx:id="toggleGroup1"/>  
+                                        </fx:define>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B3" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B4" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B5" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B6" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B7" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="B8" GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                    </GridPane>
+                                </center>
+                            </BorderPane>
+                        </content>
+                    </TitledPane>
+                    <TitledPane text="t2">
+                        <Button text="A3"/>
+                    </TitledPane>
+                    <TitledPane text="t3">
+                        <Button text="A3"/>
+                    </TitledPane>
+                </panes>
+            </Accordion>
+        </center>
+    </BorderPane>
