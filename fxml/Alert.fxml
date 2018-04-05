@@ -41,10 +41,10 @@
               </top>
               <center>
                 <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
-                  style="-fx-background-color: white;">
+                   style="-fx-background-color: white;">
                 <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
-                <Button text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#handleSubmitButtonAction"/>
-                <Button text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#handleSubmitButtonAction"/>
+                <Button text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Button text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
                 <Button text="B3" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
                 <Button text="B4" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
                 <Button text="B5" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
