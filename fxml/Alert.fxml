@@ -39,7 +39,7 @@
                                 <top>
                                     <HBox alignment="center" style="-fx-background-color: white;">
                                         <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-                                        <Text fx:id="actiontarget" text="Please select what type of alert:" />
+                                        <Text fx:id="actiontarget1" text="Please select what type of alert:" />
                                     </HBox>
                                 </top>
                                 <center>
@@ -49,14 +49,30 @@
                                         <fx:define>
                                             <ToggleGroup fx:id="toggleGroup1"/>
                                         </fx:define>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B1" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B2" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B3" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B4" GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B5" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B6" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B7" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="B8" GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Tsunami" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                        prefHeight="10" prefWidth="120"
+                                        onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Amber Alert"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Missiles Strike"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Flash Flood"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Hurricane"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Active Shooter"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Bomb Threat"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Code Red"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
                                     </GridPane>
                                 </center>
                             </BorderPane>
@@ -68,7 +84,7 @@
                                 <top>
                                     <HBox alignment="center" style="-fx-background-color: white;">
                                         <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-                                        <Text fx:id="actiontarget" text="Please select the devices to send alert to:" />
+                                        <Text fx:id="actiontarget2" text="Please select the devices to send alert to:" />
                                     </HBox>
                                 </top>
                                 <center>
@@ -90,8 +106,18 @@
                             </BorderPane>
                         </content>
                     </TitledPane>
-                    <TitledPane fx:id="t3" text="t3">
-                        <Button text="A3"/>
+                    <TitledPane fx:id="t3" text="Confirmation">
+                        <VBox>
+                            <Text fx:id="actiontarget3" text="Please confirm your choices:"
+                                style="-fx-font: 20px Tahoma;"></Text>
+                            <Text text="Alert type:"></Text>
+                            <VBox fx:id="selectedAlertOut">
+                            </VBox>
+                            <Text text="Send to:"></Text>
+                            <VBox fx:id="selectedDevicesOut">
+                            </VBox>
+                            <Button text="Send Alert" onAction="#handleSendAlertButton"></Button>
+                        </VBox>
                     </TitledPane>
                 </panes>
             </Accordion>
