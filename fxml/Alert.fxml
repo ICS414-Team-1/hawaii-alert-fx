@@ -39,7 +39,7 @@
                                 <top>
                                     <HBox alignment="center" style="-fx-background-color: white;">
                                         <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-                                        <Text fx:id="actiontarget" text="Please select:" />
+                                        <Text fx:id="actiontarget" text="Please select what type of alert:" />
                                     </HBox>
                                 </top>
                                 <center>
@@ -62,10 +62,35 @@
                             </BorderPane>
                         </content>
                     </TitledPane>
-                    <TitledPane text="t2">
-                        <Button text="A3"/>
+                    <TitledPane fx:id="t2" text="Select devices">
+                        <content>
+                            <BorderPane>
+                                <top>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+                                        <Text fx:id="actiontarget" text="Please select the devices to send alert to:" />
+                                    </HBox>
+                                </top>
+                                <center>
+                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                        style="-fx-background-color: white;">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        <VBox fx:id="checkboxes">
+                                              <CheckBox text="cellphones"
+                                                  onAction="#changeDevicesTitle" >0</CheckBox>
+                                              <CheckBox text="televisions"
+                                                  onAction="#changeDevicesTitle" >1</CheckBox>
+                                              <CheckBox text="siren"
+                                                  onAction="#changeDevicesTitle" >2</CheckBox>
+                                              <CheckBox text="radio"
+                                                  onAction="#changeDevicesTitle" >3</CheckBox>
+                                        </VBox>
+                                    </GridPane>
+                                </center>
+                            </BorderPane>
+                        </content>
                     </TitledPane>
-                    <TitledPane text="t3">
+                    <TitledPane fx:id="t3" text="t3">
                         <Button text="A3"/>
                     </TitledPane>
                 </panes>
