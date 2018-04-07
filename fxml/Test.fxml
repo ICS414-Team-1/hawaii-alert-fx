@@ -70,7 +70,7 @@
                                         <ToggleButton toggleGroup="$toggleGroup1" text="Bomb Threat"
                                         prefHeight="10" prefWidth="120"
                                         GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Code Red"
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Tropical Storm"
                                         prefHeight="10" prefWidth="120"
                                         GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
                                     </GridPane>
