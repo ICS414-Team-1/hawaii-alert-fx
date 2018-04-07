@@ -5,33 +5,131 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToggleButton?>
 
-<BorderPane>
-  <top>
-    <VBox alignment="center" style="-fx-background-color: green;">
-      <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
-    <Text text="Test" style="-fx-fill: white;">
-      <font>
-        <Font name="Tahoma" size="80" />
-      </font>
-    </Text>
-    <Button text="Back to Main"
-      onAction="#handleBackButtonAction" />
-    </VBox>
-  </top>
-  <left>
-    <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
-    </HBox>
-  </left>
-  <right>
-    <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
-    </HBox>
-  </right>
-  <center>
-    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="25"
-      style="-fx-background-color: white;">
-    <padding><Insets top="80" right="25" bottom="25" left="25"/></padding>
 
-    </GridPane>
-  </center>
-</BorderPane>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="border">
+    <top>
+        <VBox alignment="center" style="-fx-background-color: green;">
+            <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+            <Text text="Test" style="-fx-fill: white;">
+                <font>
+                    <Font name="Tahoma" size="80" />
+                </font>
+            </Text>
+            <Button text="Back to Main"
+                onAction="#handleBackButtonAction" />
+            </VBox>
+        </top>
+        <left>
+            <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
+            </HBox>
+        </left>
+        <right>
+            <HBox style="-fx-background-color: green;-fx-pref-width: 100px;">
+            </HBox>
+        </right>
+        <center>
+            <Accordion fx:id="accordion" expandedPane="$t1">
+                <panes>
+                    <TitledPane fx:id="t1" text="Alert Type">
+                        <content>
+                            <BorderPane>
+                                <top>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+                                        <Text fx:id="actiontarget1" text="Please select what type of alert:" />
+                                    </HBox>
+                                </top>
+                                <center>
+                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                        style="-fx-background-color: white;">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        <fx:define>
+                                            <ToggleGroup fx:id="toggleGroup1"/>
+                                        </fx:define>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Tsunami" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                                        prefHeight="10" prefWidth="120"
+                                        onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Amber Alert"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Missiles Strike"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Flash Flood"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Hurricane"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Active Shooter"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Bomb Threat"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <ToggleButton toggleGroup="$toggleGroup1" text="Tropical Storm"
+                                        prefHeight="10" prefWidth="120"
+                                        GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                    </GridPane>
+                                </center>
+                                <bottom>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <Button text="Next" onAction="#changePane1"/>
+                                    </HBox>
+                                </bottom>
+                            </BorderPane>
+                        </content>
+                    </TitledPane>
+                    <TitledPane fx:id="t2" text="Select devices">
+                        <content>
+                            <BorderPane>
+                                <top>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+                                        <Text fx:id="actiontarget2" text="Please select the devices to send alert to:" />
+                                    </HBox>
+                                </top>
+                                <center>
+                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                        style="-fx-background-color: white;">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        <VBox fx:id="checkboxes">
+                                              <CheckBox text="cellphones"
+                                                  onAction="#changeDevicesTitle" >0</CheckBox>
+                                              <CheckBox text="televisions"
+                                                  onAction="#changeDevicesTitle" >1</CheckBox>
+                                              <CheckBox text="siren"
+                                                  onAction="#changeDevicesTitle" >2</CheckBox>
+                                              <CheckBox text="radio"
+                                                  onAction="#changeDevicesTitle" >3</CheckBox>
+                                        </VBox>
+                                    </GridPane>
+                                </center>
+                                <bottom>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <Button text="Next" onAction="#changePane2"/>
+                                    </HBox>
+                                </bottom>
+                            </BorderPane>
+                        </content>
+                    </TitledPane>
+                    <TitledPane fx:id="t3" text="Confirmation">
+                        <VBox>
+                            <Text fx:id="actiontarget3" text="Please confirm your choices:"
+                                style="-fx-font: 20px Tahoma;"></Text>
+                            <Text text="Alert type:"></Text>
+                            <VBox fx:id="selectedAlertOut">
+                            </VBox>
+                            <Text text="Send to:"></Text>
+                            <VBox fx:id="selectedDevicesOut">
+                            </VBox>
+                            <Button text="Send Alert" onAction="#handleSendAlertButton"></Button>
+                        </VBox>
+                    </TitledPane>
+                </panes>
+            </Accordion>
+        </center>
+    </BorderPane>

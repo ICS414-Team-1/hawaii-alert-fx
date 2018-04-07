@@ -1,7 +1,5 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.text.Text;
-import javafx.scene.control.Button;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +10,6 @@ public class FXMLMainController {
     public FXMLMainController(Stage primaryStage) {
       this.primaryStage = primaryStage;
     }
-    @FXML private Text actiontarget;
 
     @FXML protected void handleTestButtonAction(ActionEvent event) {
       try {
