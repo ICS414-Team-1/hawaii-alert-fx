@@ -7,16 +7,17 @@ package devices;
 
 /**
  *
- * @author david
+ * 
  */
-public class Radio implements Devices{
+public class Television implements Devices {
+    
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     private String disaster;
     private String locations;
     private String message;
 
-    public Radio(String disaster, String locations, String message, boolean open, int mode) {
+    public Television(String disaster, String locations, String message, boolean open, int mode) {
       this.open = open;
       this.disaster = disaster;
       this.locations = locations;
@@ -108,8 +109,4 @@ public class Radio implements Devices{
         return false;
     }
 
-
-
-
-    
 }
