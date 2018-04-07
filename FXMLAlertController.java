@@ -83,14 +83,22 @@ public class FXMLAlertController {
                         Radio radio1 = new Radio(alertType, "Oahu");
                         radio1.warningSET(2);
                         radio1.send();
-
                     }
+                    else if(device.equals("televisions")) {
+                        Television television1 = new Television(alertType, "Oahu");
+                        television1.warningSET(2);
+                        television1.send();
+                    }
+                    else {
+                        //Other devices will be implementing later
+                    }
+
                 }
                 Alert sentConfirm = new Alert(AlertType.INFORMATION);
                 sentConfirm.setTitle("Confirmation Dialog");
                 sentConfirm.setHeaderText("The alert has been sent!");
                 sentConfirm.showAndWait();
-                //backToMain();
+                backToMain();
             }
             else {
                 Alert sentError = new Alert(AlertType.ERROR);

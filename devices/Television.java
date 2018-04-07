@@ -7,10 +7,10 @@ package devices;
 
 /**
  *
- * 
+ *
  */
 public class Television implements Devices {
-    
+
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     private String disaster;
@@ -25,6 +25,12 @@ public class Television implements Devices {
       this.mode = 0;
     }
 
+    public Television(String disaster, String locations) {
+        this.disaster = disaster;
+        this.locations = locations;
+        open = true;
+        message = disaster + " " + locations;
+    }
     @Override
     public void open() {
         open = true;
@@ -33,7 +39,7 @@ public class Television implements Devices {
         locations = null;
         message = null;
     }
-    
+
     @Override
     public void configure(String disaster, String locations) {
         this.disaster = disaster;
@@ -100,8 +106,12 @@ public class Television implements Devices {
 
     @Override
     public boolean send() {
-        if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null))  {
+        if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
             //Code for sending message through radio hardware.
+            String type = "";
+            if(mode == 1) type = "\nIt's a drill test";
+            else type = "\nIt's NOT a drill";
+            System.out.println("Alert has been sent to television devices with message:\n" + message + type);
             open = false;
             mode = 0;
             disaster = null;

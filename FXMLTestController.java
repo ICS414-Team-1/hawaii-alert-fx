@@ -14,6 +14,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import devices.*;
 
 public class FXMLTestController {
     private Stage primaryStage;
@@ -71,6 +72,22 @@ public class FXMLTestController {
         });
     }
     @FXML protected void handleSendAlertButton(ActionEvent event) {
+        for(String device: checkedBoxes) {
+            if(device.equals("radio")) {
+                Radio radio1 = new Radio(alertType, "Oahu");
+                radio1.warningSET(1);
+                radio1.send();
+            }
+            else if(device.equals("televisions")) {
+                Television television1 = new Television(alertType, "Oahu");
+                television1.warningSET(1);
+                television1.send();
+            }
+            else {
+                //Other devices will be implementing later
+            }
+
+        }
         Alert sentConfirm = new Alert(AlertType.INFORMATION);
         sentConfirm.setTitle("Confirmation Dialog");
         sentConfirm.setHeaderText("The test alert has been sent!");

@@ -24,7 +24,12 @@ public class Radio implements Devices {
         this.message = message;
         this.mode = 0;
     }
-
+    public Radio(String disaster, String locations) {
+        this.disaster = disaster;
+        this.locations = locations;
+        open = true;
+        message = disaster + " " + locations;
+    }
     @Override
     public void open() {
         open = true;
@@ -102,6 +107,10 @@ public class Radio implements Devices {
     public boolean send() {
         if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
             //Code for sending message through radio hardware.
+            String type = "";
+            if(mode == 1) type = "\nIt's a drill test";
+            else type = "\nIt's NOT a drill";
+            System.out.println("Alert has been sent to radio devices with message:\n" + message + type);
             open = false;
             mode = 0;
             disaster = null;
