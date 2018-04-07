@@ -10,15 +10,15 @@ package devices;
  *
  * @author david
  */
-public interface devices {
-    
+public interface Devices {
+
     public void open();
-        
+
     public void configure(String disaster, String location);
-    
+
     public String test();
-    
+
     public void warningSET(int devicemode);
-    
+
     public boolean send();
 }

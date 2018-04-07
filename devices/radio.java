@@ -9,7 +9,7 @@ package devices;
  *
  * @author david
  */
-public class radio implements devices{
+public class Radio implements Devices{
     boolean open = false;
     int mode = 0;  // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     String disaster;
@@ -25,10 +25,19 @@ public class radio implements devices{
         message = null;
     }
 
+    public Radio() {
+    }
+    public Radio(String disaster, String locations) {
+        this.disaster = disaster;
+        this.locations = locations;
+        message = this.test();
+        open = true;
+    }
     @Override
     public void configure(String disaster, String locations) {
         this.disaster = disaster;
         this.locations = locations;
+        message = this.test();
     }
 
     @Override
@@ -46,7 +55,7 @@ public class radio implements devices{
                     + "autorities have been dispatched, and the area is being "
                     + "evacuated.";
             case "Amber Alert": message = "An Amber Alert is being issued. A "
-                    + "child has gone missing and may be in the area of: " 
+                    + "child has gone missing and may be in the area of: "
                     + locations + ". For further information, please visit "
                     + "*amberalertwebsite* and if you have any information, "
                     + "please call 911.";
@@ -85,6 +94,7 @@ public class radio implements devices{
     public boolean send() {
         if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null))  {
             //Code for sending message through radio hardware.
+            System.out.println("message sent to radio devices :" + message);
             open = false;
             mode = 0;
             disaster = null;
@@ -92,6 +102,7 @@ public class radio implements devices{
             message = null;
             return true;
         }
+        System.out.println(mode + " " + disaster + " " + locations + " " + message);
         open = false;
         mode = 0;
         disaster = null;
@@ -103,5 +114,5 @@ public class radio implements devices{
 
 
 
-    
+
 }

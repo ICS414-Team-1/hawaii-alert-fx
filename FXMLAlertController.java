@@ -14,6 +14,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import devices.*;
 
 public class FXMLAlertController {
     private Stage primaryStage;
@@ -77,11 +78,19 @@ public class FXMLAlertController {
         if(clickedButton.isPresent()) {
             String capcha = confirm.getEditor().getText().trim();
             if(capcha.equals("Affirmative")) {
+                for(String device: checkedBoxes) {
+                    if(device.equals("radio")) {
+                        Radio radio1 = new Radio(alertType, "Oahu");
+                        radio1.warningSET(2);
+                        radio1.send();
+
+                    }
+                }
                 Alert sentConfirm = new Alert(AlertType.INFORMATION);
                 sentConfirm.setTitle("Confirmation Dialog");
                 sentConfirm.setHeaderText("The alert has been sent!");
                 sentConfirm.showAndWait();
-                backToMain();
+                //backToMain();
             }
             else {
                 Alert sentError = new Alert(AlertType.ERROR);
@@ -89,7 +98,7 @@ public class FXMLAlertController {
                 sentError.setHeaderText("You didn't entered the text correctly!");
                 sentError.showAndWait();
             }
-        }    
+        }
     }
     @FXML private void backToMain() {
         try {
