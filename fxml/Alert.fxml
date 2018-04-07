@@ -31,7 +31,7 @@
             </HBox>
         </right>
         <center>
-            <Accordion expandedPane="$t1">
+            <Accordion fx:id="accordion" expandedPane="$t1">
                 <panes>
                     <TitledPane fx:id="t1" text="Alert Type">
                         <content>
@@ -75,6 +75,11 @@
                                         GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
                                     </GridPane>
                                 </center>
+                                <bottom>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <Button text="Next" onAction="#changePane1"/>
+                                    </HBox>
+                                </bottom>
                             </BorderPane>
                         </content>
                     </TitledPane>
@@ -103,6 +108,11 @@
                                         </VBox>
                                     </GridPane>
                                 </center>
+                                <bottom>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <Button text="Next" onAction="#changePane2"/>
+                                    </HBox>
+                                </bottom>
                             </BorderPane>
                         </content>
                     </TitledPane>

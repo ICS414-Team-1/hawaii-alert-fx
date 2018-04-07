@@ -11,6 +11,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -25,6 +26,7 @@ public class FXMLAlertController {
     @FXML private TitledPane t1;
     @FXML private TitledPane t2;
     @FXML private TitledPane t3;
+    @FXML private Accordion accordion;
     @FXML private VBox selectedAlertOut;
     @FXML private VBox selectedDevicesOut;
     @FXML protected void handleBackButtonAction(ActionEvent event) {
@@ -45,6 +47,15 @@ public class FXMLAlertController {
         }
         t2.setText("Select devices " + checkedBoxes.toString());
     }
+
+    @FXML protected void changePane1(ActionEvent event) {
+        accordion.setExpandedPane(t2);
+    }
+
+    @FXML protected void changePane2(ActionEvent event) {
+        accordion.setExpandedPane(t3);
+    }
+    
     public void initialize() {
         t3.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
             if (isNowExpanded) {
