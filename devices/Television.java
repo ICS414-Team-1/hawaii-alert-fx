@@ -7,22 +7,22 @@ package devices;
 
 /**
  *
- * @author david
+ * 
  */
-public class Radio implements Devices {
-
+public class Television implements Devices {
+    
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     private String disaster;
     private String locations;
     private String message;
 
-    public Radio(String disaster, String locations, String message, boolean open, int mode) {
-        this.open = open;
-        this.disaster = disaster;
-        this.locations = locations;
-        this.message = message;
-        this.mode = 0;
+    public Television(String disaster, String locations, String message, boolean open, int mode) {
+      this.open = open;
+      this.disaster = disaster;
+      this.locations = locations;
+      this.message = message;
+      this.mode = 0;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Radio implements Devices {
         locations = null;
         message = null;
     }
-
+    
     @Override
     public void configure(String disaster, String locations) {
         this.disaster = disaster;
@@ -90,8 +90,8 @@ public class Radio implements Devices {
 
     /**
      *
-     * @param devicemode is set to 0, 1, or 2. 0 = no mode has been set, 1 =
-     * test alert mode set, and 2 = real alert mode set.
+     * @param devicemode is set to 0, 1, or 2. 0 = no mode has been set,
+     * 1 = test alert mode set, and 2 = real alert mode set.
      */
     @Override
     public void warningSET(int devicemode) {
@@ -100,7 +100,7 @@ public class Radio implements Devices {
 
     @Override
     public boolean send() {
-        if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
+        if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null))  {
             //Code for sending message through radio hardware.
             open = false;
             mode = 0;
