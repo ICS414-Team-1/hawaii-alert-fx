@@ -55,7 +55,7 @@ public class FXMLAlertController {
     @FXML protected void changePane2(ActionEvent event) {
         accordion.setExpandedPane(t3);
     }
-    
+
     public void initialize() {
         t3.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
             if (isNowExpanded) {
@@ -73,21 +73,23 @@ public class FXMLAlertController {
     @FXML protected void handleSendAlertButton(ActionEvent event) {
         TextInputDialog confirm = new TextInputDialog();
         confirm.setHeaderText("Are you sure you want to send this warning?\nPlease type \"Affirmative\" to confirm");
-        confirm.showAndWait();
-        String capcha = confirm.getEditor().getText().trim();
-        if(capcha.equals("Affirmative")) {
-            Alert sentConfirm = new Alert(AlertType.INFORMATION);
-            sentConfirm.setTitle("Confirmation Dialog");
-            sentConfirm.setHeaderText("The alert has been sent!");
-            sentConfirm.showAndWait();
-            backToMain();
-        }
-        else {
-            Alert sentError = new Alert(AlertType.ERROR);
-            sentError.setTitle("Confirmation Dialog");
-            sentError.setHeaderText("You didn't entered the text correctly!");
-            sentError.showAndWait();
-        }
+        Optional<String> clickedButton = confirm.showAndWait();
+        if(clickedButton.isPresent()) {
+            String capcha = confirm.getEditor().getText().trim();
+            if(capcha.equals("Affirmative")) {
+                Alert sentConfirm = new Alert(AlertType.INFORMATION);
+                sentConfirm.setTitle("Confirmation Dialog");
+                sentConfirm.setHeaderText("The alert has been sent!");
+                sentConfirm.showAndWait();
+                backToMain();
+            }
+            else {
+                Alert sentError = new Alert(AlertType.ERROR);
+                sentError.setTitle("Confirmation Dialog");
+                sentError.setHeaderText("You didn't entered the text correctly!");
+                sentError.showAndWait();
+            }
+        }    
     }
     @FXML private void backToMain() {
         try {
