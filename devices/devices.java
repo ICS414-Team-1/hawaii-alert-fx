@@ -10,7 +10,7 @@ package devices;
  *
  * @author david
  */
-public interface devices {
+public interface Devices {
     
     public void open();
         

@@ -9,12 +9,21 @@ package devices;
  *
  * @author david
  */
-public class radio implements devices{
-    boolean open = false;
-    int mode = 0;  // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
-    String disaster;
-    String locations;
-    String message;
+public class Radio implements Devices{
+    private boolean open;
+    private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
+    private String disaster;
+    private String locations;
+    private String message;
+
+    @Override
+    public Radio(String disaster, String locations, String message, boolean open, int mode) {
+      this.open = open;
+      this.disaster = disaster;
+      this.locations = locations;
+      this.message = message;
+      this.mode = 0;
+    }
 
     @Override
     public void open() {
