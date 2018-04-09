@@ -80,10 +80,11 @@ public class FXMLAlertController {
     }
 
     public void initialize() {
-        t3.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
+        t4.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
             if (isNowExpanded) {
                 selectedAlertOut.getChildren().removeAll(selectedAlertOut.getChildren());
                 selectedDevicesOut.getChildren().removeAll(selectedDevicesOut.getChildren());
+                selectedLocationsOut.getChildren().removeAll(selectedLocationsOut.getChildren());
                 Text selectedAlertType = new Text(alertType);
                 selectedAlertOut.getChildren().add(selectedAlertType);
                 for(String device: checkedBoxes) {
@@ -115,7 +116,8 @@ public class FXMLAlertController {
                         radio1.send();
                     }
                     else if(device.equals("televisions")) {
-                        Television television1 = new Television(alertType, "Oahu");
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        Television television1 = new Television(alertType, s);
                         television1.warningSET(2);
                         television1.send();
                     }

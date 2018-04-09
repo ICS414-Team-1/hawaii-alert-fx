@@ -156,7 +156,7 @@
                     </TitledPane>
                     <TitledPane fx:id="t4" text="Confirmation">
                         <VBox>
-                            <Text fx:id="actiontarget3" text="Please confirm your choices:"
+                            <Text fx:id="actiontarget4" text="Please confirm your choices:"
                                 style="-fx-font: 20px Tahoma;"></Text>
                             <Text text="Alert type:"></Text>
                             <VBox fx:id="selectedAlertOut">

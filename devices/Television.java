@@ -14,10 +14,10 @@ public class Television implements Devices {
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     private String disaster;
-    private String locations;
+    private String locations[];
     private String message;
 
-    public Television(String disaster, String locations, String message, boolean open, int mode) {
+    public Television(String disaster, String[] locations, String message, boolean open, int mode) {
       this.open = open;
       this.disaster = disaster;
       this.locations = locations;
@@ -25,11 +25,11 @@ public class Television implements Devices {
       this.mode = 0;
     }
 
-    public Television(String disaster, String locations) {
+    public Television(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
         open = true;
-        message = disaster + " " + locations;
+        message = disaster + " ";
     }
     @Override
     public void open() {
@@ -41,7 +41,7 @@ public class Television implements Devices {
     }
 
     @Override
-    public void configure(String disaster, String locations) {
+    public void configure(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
         switch (disaster) {
@@ -108,10 +108,12 @@ public class Television implements Devices {
     public boolean send() {
         if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
             //Code for sending message through radio hardware.
-            String type = "";
-            if(mode == 1) type = "\nIt's a drill test";
-            else type = "\nIt's NOT a drill";
-            System.out.println("Alert has been sent to television devices with message:\n" + message + type);
+            for (String location : locations) {
+                String type = "";
+                if(mode == 1) type = "\nIt's a drill test";
+                else type = "\nIt's NOT a drill";
+                System.out.println("Alert has been sent to television devices with message:\n" + message + location + type);
+            }
             open = false;
             mode = 0;
             disaster = null;
