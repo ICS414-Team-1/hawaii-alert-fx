@@ -14,21 +14,22 @@ public class Radio implements Devices {
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
     private String disaster;
-    private String locations;
+    private String locations[];
     private String message;
 
-    public Radio(String disaster, String locations, String message, boolean open, int mode) {
+    public Radio(String disaster, String[] locations, String message, boolean open, int mode) {
         this.open = open;
         this.disaster = disaster;
         this.locations = locations;
         this.message = message;
         this.mode = 0;
+        System.out.println(locations[0] + locations[1]);
     }
-    public Radio(String disaster, String locations) {
+    public Radio(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
         open = true;
-        message = disaster + " " + locations;
+        message = disaster + " ";
     }
     @Override
     public void open() {
@@ -40,7 +41,7 @@ public class Radio implements Devices {
     }
 
     @Override
-    public void configure(String disaster, String locations) {
+    public void configure(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
         switch (disaster) {
@@ -107,10 +108,12 @@ public class Radio implements Devices {
     public boolean send() {
         if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
             //Code for sending message through radio hardware.
-            String type = "";
-            if(mode == 1) type = "\nIt's a drill test";
-            else type = "\nIt's NOT a drill";
-            System.out.println("Alert has been sent to radio devices with message:\n" + message + type);
+            for (String location : locations) {
+                String type = "";
+                if(mode == 1) type = "\nIt's a drill test";
+                else type = "\nIt's NOT a drill";
+                System.out.println("Alert has been sent to radio devices with message:\n" + message + location + type);
+            }
             open = false;
             mode = 0;
             disaster = null;
