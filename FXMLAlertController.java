@@ -20,6 +20,7 @@ public class FXMLAlertController {
     private Stage primaryStage;
     private String alertType;
     private LinkedList<String> checkedBoxes = new LinkedList<String>();
+    private LinkedList<String> checkedLocations = new LinkedList<String>();
 
     public FXMLAlertController(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -27,9 +28,12 @@ public class FXMLAlertController {
     @FXML private TitledPane t1;
     @FXML private TitledPane t2;
     @FXML private TitledPane t3;
+    @FXML private TitledPane t4;
+    @FXML private TitledPane locationPane;
     @FXML private Accordion accordion;
     @FXML private VBox selectedAlertOut;
     @FXML private VBox selectedDevicesOut;
+    @FXML private VBox selectedLocationsOut;
     @FXML protected void handleBackButtonAction(ActionEvent event) {
         backToMain();
     }
@@ -49,12 +53,30 @@ public class FXMLAlertController {
         t2.setText("Select devices " + checkedBoxes.toString());
     }
 
+    @FXML protected void changeLocationsTitle(ActionEvent event) {
+        Object source = event.getSource();
+        if(((CheckBox)source).isSelected()) {
+            checkedLocations.add(((CheckBox)source).getText());
+        }
+        else {
+            checkedLocations.remove(((CheckBox)source).getText());
+        }
+        t3.setText("Select locations " + checkedLocations.toString());
+    }
+
+    // Alert -> Devices
     @FXML protected void changePane1(ActionEvent event) {
         accordion.setExpandedPane(t2);
     }
 
+    // Devices -> Location
     @FXML protected void changePane2(ActionEvent event) {
         accordion.setExpandedPane(t3);
+    }
+
+    // Location -> Final
+    @FXML protected void changePane3(ActionEvent event) {
+        accordion.setExpandedPane(t4);
     }
 
     public void initialize() {
@@ -68,9 +90,15 @@ public class FXMLAlertController {
                     Text selectedDevice = new Text(device);
                     selectedDevicesOut.getChildren().add(selectedDevice);
                 }
+
+                for(String location: checkedLocations) {
+                    Text selectedLocation = new Text(location);
+                    selectedLocationsOut.getChildren().add(selectedLocation);
+                }
             }
         });
     }
+
     @FXML protected void handleSendAlertButton(ActionEvent event) {
         TextInputDialog confirm = new TextInputDialog();
         confirm.setHeaderText("Are you sure you want to send this warning?\nPlease type \"Affirmative\" to confirm");
@@ -80,7 +108,9 @@ public class FXMLAlertController {
             if(capcha.equals("Affirmative")) {
                 for(String device: checkedBoxes) {
                     if(device.equals("radio")) {
-                        Radio radio1 = new Radio(alertType, "Oahu");
+                        // String s is the array form of the linked list checkedLocations
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        Radio radio1 = new Radio(alertType, s);
                         radio1.warningSET(2);
                         radio1.send();
                     }
