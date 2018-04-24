@@ -98,6 +98,10 @@ public class HawaiiAlertApp extends Application {
                         System.out.println(ie);
                     }
                   }
+                 else {
+                    actiontarget.setFill(Color.FIREBRICK);
+                    actiontarget.setText("Invlid username/password");
+                 }
             }
         });
 
