@@ -100,7 +100,7 @@ public class HawaiiAlertApp extends Application {
                   }
                  else {
                     actiontarget.setFill(Color.FIREBRICK);
-                    actiontarget.setText("Invlid username/password");
+                    actiontarget.setText("Invalid username/password");
                  }
             }
         });
