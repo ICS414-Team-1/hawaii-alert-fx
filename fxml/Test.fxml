@@ -116,15 +116,57 @@
                             </BorderPane>
                         </content>
                     </TitledPane>
-                    <TitledPane fx:id="t3" text="Confirmation">
+                    <TitledPane fx:id="t3" text="Select locations">
+                        <content>
+                            <BorderPane>
+                                <top>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
+                                        <Text fx:id="actiontarget3" text="Please select the locations to send alert to:" />
+                                    </HBox>
+                                </top>
+                                <center>
+                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                        style="-fx-background-color: white;">
+                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
+                                        <VBox fx:id="checkboxesLocations">
+                                              <CheckBox text="Oahu"
+                                                  onAction="#changeLocationsTitle" >0</CheckBox>
+                                              <CheckBox text="Maui"
+                                                  onAction="#changeLocationsTitle" >1</CheckBox>
+                                              <CheckBox text="Hawaii"
+                                                  onAction="#changeLocationsTitle" >2</CheckBox>
+                                              <CheckBox text="Kauai"
+                                                  onAction="#changeLocationsTitle" >3</CheckBox>
+                                              <CheckBox text="Molokai"
+                                                  onAction="#changeLocationsTitle" >4</CheckBox>
+                                              <CheckBox text="Lanai"
+                                                  onAction="#changeLocationsTitle" >5</CheckBox>
+                                        </VBox>
+                                    </GridPane>
+                                </center>
+                                <bottom>
+                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                        <Button text="Next" onAction="#changePane3"/>
+                                    </HBox>
+                                </bottom>
+                            </BorderPane>
+                        </content>
+                    </TitledPane>
+                    <TitledPane fx:id="t4" text="Confirmation">
                         <VBox>
-                            <Text fx:id="actiontarget3" text="Please confirm your choices:"
+                            <Text fx:id="actiontarget4" text="Please confirm your choices:"
                                 style="-fx-font: 20px Tahoma;"></Text>
                             <Text text="Alert type:"></Text>
                             <VBox fx:id="selectedAlertOut">
                             </VBox>
+                            <Separator />
                             <Text text="Send to:"></Text>
                             <VBox fx:id="selectedDevicesOut">
+                            </VBox>
+                            <Separator />
+                            <Text text="Locations:"></Text>
+                            <VBox fx:id="selectedLocationsOut">
                             </VBox>
                             <Button text="Send Alert" onAction="#handleSendAlertButton"></Button>
                         </VBox>

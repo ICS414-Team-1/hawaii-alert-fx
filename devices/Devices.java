@@ -14,7 +14,7 @@ public interface Devices {
 
     public void open();
 
-    public void configure(String disaster, String location);
+    public void configure(String disaster, String[] location);
 
     public String test();
 
