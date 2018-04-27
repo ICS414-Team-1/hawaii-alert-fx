@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextInputDialog;
@@ -31,6 +32,7 @@ public class FXMLAlertController {
     @FXML private TitledPane t4;
     @FXML private TitledPane locationPane;
     @FXML private Accordion accordion;
+    @FXML private Button btn3;
     @FXML private VBox selectedAlertOut;
     @FXML private VBox selectedDevicesOut;
     @FXML private VBox selectedLocationsOut;
@@ -38,10 +40,27 @@ public class FXMLAlertController {
         backToMain();
     }
 
+    /**
+     *  Sets Confirmation Pane disabled if something isn't selected.
+     */
+    void setDisabled() {
+        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []") 
+            || t3.getText().equals("Select locations: ") || t3.getText().equals("Select locations: []")) {
+            t4.setDisable(true);
+            btn3.setDisable(true);
+        }
+        else {
+            t4.setDisable(false);
+            btn3.setDisable(false);
+        }
+    }
+
     @FXML protected void changeTitle(ActionEvent event) {
         alertType = ((ToggleButton)event.getSource()).getText();
-        t1.setText("Alert Type " + alertType);
+        t1.setText("Alert Type: " + alertType);
+        setDisabled();
     }
+    
     @FXML protected void changeDevicesTitle(ActionEvent event) {
         Object source = event.getSource();
         if(((CheckBox)source).isSelected()) {
@@ -50,7 +69,8 @@ public class FXMLAlertController {
         else {
             checkedBoxes.remove(((CheckBox)source).getText());
         }
-        t2.setText("Select devices " + checkedBoxes.toString());
+        t2.setText("Select devices: " + checkedBoxes.toString());
+        setDisabled();
     }
 
     @FXML protected void changeLocationsTitle(ActionEvent event) {
@@ -61,7 +81,8 @@ public class FXMLAlertController {
         else {
             checkedLocations.remove(((CheckBox)source).getText());
         }
-        t3.setText("Select locations " + checkedLocations.toString());
+        t3.setText("Select locations: " + checkedLocations.toString());
+        setDisabled();
     }
 
     // Alert -> Devices
@@ -156,4 +177,6 @@ public class FXMLAlertController {
             System.out.println("Alert Controller: " + e);
         }
     }
+
+
 }

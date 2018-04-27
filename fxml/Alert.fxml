@@ -33,7 +33,7 @@
         <center>
             <Accordion fx:id="accordion" expandedPane="$t1">
                 <panes>
-                    <TitledPane fx:id="t1" text="Alert Type">
+                    <TitledPane fx:id="t1" text="Alert Type: ">
                         <content>
                             <BorderPane>
                                 <top>
@@ -83,7 +83,7 @@
                             </BorderPane>
                         </content>
                     </TitledPane>
-                    <TitledPane fx:id="t2" text="Select devices">
+                    <TitledPane fx:id="t2" text="Select devices: ">
                         <content>
                             <BorderPane>
                                 <top>
@@ -117,7 +117,7 @@
                         </content>
                     </TitledPane>
                     <!-- Location -->
-                    <TitledPane fx:id="t3" text="Select locations">
+                    <TitledPane fx:id="t3" text="Select locations: ">
                         <content>
                             <BorderPane>
                                 <top>
@@ -148,13 +148,13 @@
                                 </center>
                                 <bottom>
                                     <HBox alignment="center" style="-fx-background-color: white;">
-                                        <Button text="Next" onAction="#changePane3"/>
+                                        <Button fx:id="btn3" text="Next" onAction="#changePane3" disable="true"/>
                                     </HBox>
                                 </bottom>
                             </BorderPane>
                         </content>
                     </TitledPane>
-                    <TitledPane fx:id="t4" text="Confirmation">
+                    <TitledPane fx:id="t4" text="Confirmation" disable="true">
                         <VBox>
                             <Text fx:id="actiontarget4" text="Please confirm your choices:"
                                 style="-fx-font: 20px Tahoma;"></Text>
