@@ -10,6 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Accordion;
@@ -45,7 +46,7 @@ public class FXMLAlertController {
      *  Sets Confirmation Pane disabled if something isn't selected.
      */
     void setDisabled() {
-        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []") 
+        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []")
             || t3.getText().equals("Select locations: ") || t3.getText().equals("Select locations: []")) {
             t4.setDisable(true);
             btn3.setDisable(true);
@@ -61,12 +62,12 @@ public class FXMLAlertController {
             alertType = ((ToggleButton)event.getSource()).getText();
             t1.setText("Alert Type: " + alertType);
         }
-        else { 
+        else {
             t1.setText("Alert Type: ");
         }
         setDisabled();
     }
-    
+
     @FXML protected void changeDevicesTitle(ActionEvent event) {
         Object source = event.getSource();
         if(((ToggleButton)source).isSelected()) {
