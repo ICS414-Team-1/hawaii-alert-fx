@@ -11,8 +11,8 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:id="border">
     <stylesheets>
-    <URL value="@Alert.css" />
-</stylesheets>
+        <URL value="@Alert.css" />
+    </stylesheets>
 
     <top>
         <VBox alignment="center" style="-fx-background-color: #d10000;">
@@ -53,8 +53,6 @@
                                         <fx:define>
                                             <ToggleGroup fx:id="toggleGroup1"/>
                                         </fx:define>
-                                        <!-- <ToggleButton toggleGroup="$toggleGroup1" text="Tsunami" GridPane.columnIndex="1" GridPane.rowIndex="0"
-                                        prefHeight="75" prefWidth="75" style="-fx-graphic: url('images/tsunami.png')" onAction="#changeTitle"/> -->
                                         <ToggleButton fx:id="tb0" toggleGroup="$toggleGroup1" text="Tsunami"
                                         prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/tsunami.png'); -fx-content-display: top;"
                                         GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
