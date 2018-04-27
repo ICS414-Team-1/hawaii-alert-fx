@@ -146,14 +146,14 @@ public class FXMLAlertController {
             String capcha = confirm.getEditor().getText().trim();
             if(capcha.equals("Affirmative")) {
                 for(String device: checkedBoxes) {
-                    if(device.equals("radio")) {
+                    if(device.equals("Radio")) {
                         // String s is the array form of the linked list checkedLocations
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                         Radio radio1 = new Radio(alertType, s);
                         radio1.warningSET(2);
                         radio1.send();
                     }
-                    else if(device.equals("televisions")) {
+                    else if(device.equals("Television")) {
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                         Television television1 = new Television(alertType, s);
                         television1.warningSET(2);
