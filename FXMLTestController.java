@@ -68,11 +68,11 @@ public class FXMLTestController {
     }
     @FXML protected void changeDevicesTitle(ActionEvent event) {
         Object source = event.getSource();
-        if(((CheckBox)source).isSelected()) {
-            checkedBoxes.add(((CheckBox)source).getText());
+        if(((ToggleButton)source).isSelected()) {
+            checkedBoxes.add(((ToggleButton)source).getText());
         }
         else {
-            checkedBoxes.remove(((CheckBox)source).getText());
+            checkedBoxes.remove(((ToggleButton)source).getText());
         }
         t2.setText("Select devices: " + checkedBoxes.toString());
         setDisabled();
@@ -134,13 +134,13 @@ public class FXMLTestController {
 
     @FXML protected void handleSendAlertButton(ActionEvent event) {
         for(String device: checkedBoxes) {
-            if(device.equals("radio")) {
+            if(device.equals("Radio")) {
                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                 Radio radio1 = new Radio(alertType, s);
                 radio1.warningSET(1);
                 radio1.send();
             }
-            else if(device.equals("televisions")) {
+            else if(device.equals("Television")) {
                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                 Television television1 = new Television(alertType, s);
                 television1.warningSET(1);
