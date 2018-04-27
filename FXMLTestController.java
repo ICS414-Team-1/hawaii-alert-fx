@@ -45,7 +45,7 @@ public class FXMLTestController {
      *  Sets Confirmation Pane disabled if something isn't selected.
      */
     void setDisabled() {
-        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []") 
+        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []")
             || t3.getText().equals("Select locations: ") || t3.getText().equals("Select locations: []")) {
             t4.setDisable(true);
             btn3.setDisable(true);
@@ -96,8 +96,8 @@ public class FXMLTestController {
     @FXML protected void changePane3(ActionEvent event) {
         accordion.setExpandedPane(t4);
     }
-    @FXML protected void checkIfEmpty(Action event) {
-        
+    @FXML protected void checkIfEmpty(ActionEvent event) {
+
     }
     public void initialize() {
         t4.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
