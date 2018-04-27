@@ -19,8 +19,8 @@ public class HawaiiAlertApp extends Application {
   @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-        loader.setController(new FXMLLoginController(primaryStage));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Alert.fxml"));
+        loader.setController(new FXMLAlertController(primaryStage));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 800, 600);

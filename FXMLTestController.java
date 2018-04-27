@@ -57,8 +57,13 @@ public class FXMLTestController {
     }
 
     @FXML protected void changeTitle(ActionEvent event) {
-        alertType = ((ToggleButton)event.getSource()).getText();
-        t1.setText("Alert Type: " + alertType);
+        if (((ToggleButton)event.getSource()).isSelected()) {
+            alertType = ((ToggleButton)event.getSource()).getText();
+            t1.setText("Alert Type: " + alertType);
+        }
+        else { 
+            t1.setText("Alert Type: ");
+        }
         setDisabled();
     }
     @FXML protected void changeDevicesTitle(ActionEvent event) {
@@ -90,11 +95,21 @@ public class FXMLTestController {
     }
 
     @FXML protected void changePane2(ActionEvent event) {
-        accordion.setExpandedPane(t3);
+        if (((Button)event.getSource()).getText().equals("Next")) {
+            accordion.setExpandedPane(t3);
+        }
+        else {
+            accordion.setExpandedPane(t1);
+        }
     }
 
     @FXML protected void changePane3(ActionEvent event) {
-        accordion.setExpandedPane(t4);
+        if (((Button)event.getSource()).getText().equals("Next")) {
+            accordion.setExpandedPane(t4);
+        }
+        else {
+            accordion.setExpandedPane(t2);
+        }
     }
     public void initialize() {
         t4.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {

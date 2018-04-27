@@ -10,6 +10,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Accordion;
@@ -36,6 +37,7 @@ public class FXMLAlertController {
     @FXML private VBox selectedAlertOut;
     @FXML private VBox selectedDevicesOut;
     @FXML private VBox selectedLocationsOut;
+    @FXML private ToggleButton tb0;
     @FXML protected void handleBackButtonAction(ActionEvent event) {
         backToMain();
     }
@@ -44,7 +46,7 @@ public class FXMLAlertController {
      *  Sets Confirmation Pane disabled if something isn't selected.
      */
     void setDisabled() {
-        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []") 
+        if(t1.getText().equals("Alert Type: ") || t2.getText().equals("Select devices: ") || t2.getText().equals("Select devices: []")
             || t3.getText().equals("Select locations: ") || t3.getText().equals("Select locations: []")) {
             t4.setDisable(true);
             btn3.setDisable(true);
@@ -56,18 +58,23 @@ public class FXMLAlertController {
     }
 
     @FXML protected void changeTitle(ActionEvent event) {
-        alertType = ((ToggleButton)event.getSource()).getText();
-        t1.setText("Alert Type: " + alertType);
-        setDisabled();
-    }
-    
-    @FXML protected void changeDevicesTitle(ActionEvent event) {
-        Object source = event.getSource();
-        if(((CheckBox)source).isSelected()) {
-            checkedBoxes.add(((CheckBox)source).getText());
+        if (((ToggleButton)event.getSource()).isSelected()) {
+            alertType = ((ToggleButton)event.getSource()).getText();
+            t1.setText("Alert Type: " + alertType);
         }
         else {
-            checkedBoxes.remove(((CheckBox)source).getText());
+            t1.setText("Alert Type: ");
+        }
+        setDisabled();
+    }
+
+    @FXML protected void changeDevicesTitle(ActionEvent event) {
+        Object source = event.getSource();
+        if(((ToggleButton)source).isSelected()) {
+            checkedBoxes.add(((ToggleButton)source).getText());
+        }
+        else {
+            checkedBoxes.remove(((ToggleButton)source).getText());
         }
         t2.setText("Select devices: " + checkedBoxes.toString());
         setDisabled();
@@ -92,12 +99,22 @@ public class FXMLAlertController {
 
     // Devices -> Location
     @FXML protected void changePane2(ActionEvent event) {
-        accordion.setExpandedPane(t3);
+        if (((Button)event.getSource()).getText().equals("Next")) {
+            accordion.setExpandedPane(t3);
+        }
+        else {
+            accordion.setExpandedPane(t1);
+        }
     }
 
     // Location -> Final
     @FXML protected void changePane3(ActionEvent event) {
-        accordion.setExpandedPane(t4);
+        if (((Button)event.getSource()).getText().equals("Next")) {
+            accordion.setExpandedPane(t4);
+        }
+        else {
+            accordion.setExpandedPane(t2);
+        }
     }
 
     public void initialize() {
