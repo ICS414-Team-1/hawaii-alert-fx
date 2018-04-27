@@ -96,9 +96,6 @@ public class FXMLTestController {
     @FXML protected void changePane3(ActionEvent event) {
         accordion.setExpandedPane(t4);
     }
-    @FXML protected void checkIfEmpty(ActionEvent event) {
-
-    }
     public void initialize() {
         t4.expandedProperty().addListener((obs, wasExpanded, isNowExpanded) -> {
             if (isNowExpanded) {
