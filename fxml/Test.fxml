@@ -174,4 +174,7 @@
                 </panes>
             </Accordion>
         </center>
+        <stylesheets>
+          <URL value="@Test.css" />
+        </stylesheets>
     </BorderPane>
