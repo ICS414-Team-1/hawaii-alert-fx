@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:id="border" hgap="10" vgap="10" alignment="center">
+  <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+  <Text text="Hawaii Alert System"
+    GridPane.columnIndex="0" GridPane.rowIndex="0"
+    GridPane.columnSpan="2" GridPane.rowSpan="1">
+    <font>
+      <Font name="Tahoma" size="30" />
+    </font>
+  </Text>
+  <!--Username-->
+  <Label text="Username"
+    GridPane.columnIndex="0" GridPane.rowIndex="1">
+  </Label>
+  <TextField fx:id="usernameTF"
+    GridPane.columnIndex="1" GridPane.rowIndex="1">
+  </TextField>
+  <!--Password-->
+  <Label text="Password"
+    GridPane.columnIndex="0" GridPane.rowIndex="2">
+  </Label>
+  <PasswordField fx:id="passwordTF"
+    GridPane.columnIndex="1" GridPane.rowIndex="2">
+  </PasswordField>
+  <!--Login-->
+  <Text fx:id="actiontarget" style="-fx-fill: FIREBRICK;"
+    GridPane.columnIndex="1" GridPane.rowIndex="3">
+  </Text>
+  <HBox alignment="bottom_right"
+      GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button text="Login" onAction="#handleLoginButtonAction"></Button>
+  </HBox>
+  <stylesheets>
+    <URL value="@Login.css" />
+  </stylesheets>
+</GridPane>
