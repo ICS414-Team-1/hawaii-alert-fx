@@ -53,30 +53,37 @@
                                         <fx:define>
                                             <ToggleGroup fx:id="toggleGroup1"/>
                                         </fx:define>
-                                        <ToggleButton fx:id="tb0" toggleGroup="$toggleGroup1" text="Tsunami"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/tsunami.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Amber Alert"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/amberalert.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Missiles Strike"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/missile.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Flash Flood"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/flashflood.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Hurricane"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/hurricane.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Active Shooter"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/activeshooter.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Bomb Threat"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/bombthreat.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
-                                        <ToggleButton toggleGroup="$toggleGroup1" text="Tropical Storm"
-                                        prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/tropicalstorm.png'); -fx-content-display: top;"
-                                        GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                        <VBox spacing="5">
+                                            <HBox spacing="5" style="-fx-background-color: white;">
+                                                <ToggleButton fx:id="tb0" toggleGroup="$toggleGroup1" text="Tsunami"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/tsunami.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Amber Alert"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/amberalert.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Missiles Strike"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/missile.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Flash Flood"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/flashflood.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="4" GridPane.rowIndex="0" onAction="#changeTitle"/>
+                                            </HBox>
+                                            
+                                            <HBox spacing="5" style="-fx-background-color: white;">
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Hurricane"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/hurricane.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Active Shooter"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/activeshooter.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Bomb Threat"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/bombthreat.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Tropical Storm"
+                                                prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/tropicalstorm.png'); -fx-content-display: top;"
+                                                GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
+                                            </HBox>
+                                        </VBox>
                                     </GridPane>
                                 </center>
                                 <bottom>
@@ -97,20 +104,30 @@
                                     </HBox>
                                 </top>
                                 <center>
-                                    <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                    <!-- <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
                                         style="-fx-background-color: white;">
                                         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
-                                        <VBox fx:id="checkboxes">
-                                              <CheckBox text="cellphones"
+ -->                                        <HBox fx:id="checkboxes" alignment="center" spacing="5" style="-fx-background-color: white;">
+                                            
+                                              <ToggleButton text="cellphones" style="-fx-graphic: url('images/sms.png'); -fx-content-display: top;"
+                                              prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
+                                              <ToggleButton text="televisions" style="-fx-graphic: url('images/television.png'); -fx-content-display: top;"
+                                              prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
+                                              <ToggleButton text="siren" style="-fx-graphic: url('images/siren.png'); -fx-content-display: top;"
+                                              prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
+                                              <ToggleButton text="radio" style="-fx-graphic: url('images/radio.png'); -fx-content-display: top;"
+                                              prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
+
+                                              <!-- <CheckBox text="cellphones" style="-fx-graphic: url('images/sms.png'); -fx-content-display: top;"
                                                   onAction="#changeDevicesTitle" >0</CheckBox>
                                               <CheckBox text="televisions"
                                                   onAction="#changeDevicesTitle" >1</CheckBox>
                                               <CheckBox text="siren"
                                                   onAction="#changeDevicesTitle" >2</CheckBox>
                                               <CheckBox text="radio"
-                                                  onAction="#changeDevicesTitle" >3</CheckBox>
-                                        </VBox>
-                                    </GridPane>
+                                                  onAction="#changeDevicesTitle" >3</CheckBox> -->
+                                        </HBox>
+                                    <!-- </GridPane> -->
                                 </center>
                                 <bottom>
                                     <HBox alignment="center" style="-fx-background-color: white;">

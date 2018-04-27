@@ -69,11 +69,11 @@ public class FXMLAlertController {
     
     @FXML protected void changeDevicesTitle(ActionEvent event) {
         Object source = event.getSource();
-        if(((CheckBox)source).isSelected()) {
-            checkedBoxes.add(((CheckBox)source).getText());
+        if(((ToggleButton)source).isSelected()) {
+            checkedBoxes.add(((ToggleButton)source).getText());
         }
         else {
-            checkedBoxes.remove(((CheckBox)source).getText());
+            checkedBoxes.remove(((ToggleButton)source).getText());
         }
         t2.setText("Select devices: " + checkedBoxes.toString());
         setDisabled();

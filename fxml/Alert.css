@@ -1,3 +1,7 @@
+.root{
+    /*-fx-font-family: "Helvetica";*/
+}
+
 .toggle-button:selected {
     -fx-background-color: #ff8494;
     -fx-text-fill: white;

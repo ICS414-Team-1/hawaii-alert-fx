@@ -17,7 +17,7 @@ public class FXMLMainController {
         loader.setController(new FXMLTestController(this.primaryStage));
         Parent root = loader.load();
 
-         Scene scene = new Scene(root, 800, 600);
+         Scene scene = new Scene(root, 800, 650);
 
          this.primaryStage.setTitle("Hawaii Alert System");
          this.primaryStage.setScene(scene);
@@ -33,7 +33,7 @@ public class FXMLMainController {
         loader.setController(new FXMLAlertController(this.primaryStage));
         Parent root = loader.load();
 
-         Scene scene = new Scene(root, 800, 600);
+         Scene scene = new Scene(root, 800, 650);
 
          this.primaryStage.setTitle("Hawaii Alert System");
          this.primaryStage.setScene(scene);
