@@ -5,11 +5,19 @@
  */
 package devices;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
 
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonArray;
+import javax.json.JsonReader;
 /**
  *
  * @author david
@@ -21,7 +29,7 @@ public class Email implements Devices {
     private String disaster;
     private String locations[];
     private String message;
-    private String receive[];
+    private JsonArray receive[];
     private String send;
     private String sendPass;
     private String host;
@@ -34,7 +42,7 @@ public class Email implements Devices {
         this.locations = locations;
         this.message = message;
         this.mode = 0;
-        receive = new String[locations.length];
+        receive = new JsonArray[locations.length];
         System.out.println(locations[0] + locations[1]);
     }
     public Email(String disaster, String[] locations) {
@@ -42,7 +50,7 @@ public class Email implements Devices {
         this.locations = locations;
         open = true;
         message = disaster + " ";
-        receive = new String[locations.length];
+        receive = new JsonArray[locations.length];
     }
     @Override
     public void open() {
@@ -76,43 +84,25 @@ public class Email implements Devices {
                         return new PasswordAuthentication(send, sendPass);
                     }
                 });
-        int i = 0;
-        for (String location: locations) {
-            switch (location) {
-                case "Oahu":
-                    receive[i] = "dherman+oahumail@hawaii.edu";
-                    i++;
-                    break;
-                    
-                case "Maui":
-                    receive[i] = "dherman+mauimail@hawaii.edu";
-                    i++;
-                    break;
-                
-                case "Hilo":
-                    receive[i] = "dherman+hilomail@hawaii.edu";
-                    i++;
-                    break;
-                    
-                case "Kauai":
-                    receive[i] = "dherman+kauaimail@hawaii.edu";
-                    i++;
-                    break;
-                    
-                case "Molokai":
-                    receive[i] = "dherman+molokaimail@hawaii.edu";
-                    i++;
-                    break;
-                    
-                case "Lanai":
-                    receive[i] = "dherman+lanaimail@hawaii.edu";
-                    i++;
-                    break;
-                    
-                default:
-                    System.out.println("Location not recognized.");
-                    break;
+        File jsonInputFile = new File("config/islandEmails.json");
+        InputStream iStream;
+        try {
+            iStream = new FileInputStream(jsonInputFile);
+            // Create JsonReader from Json.
+            JsonReader reader = Json.createReader(iStream);
+            // Get the JsonObject structure from JsonReader.
+            JsonObject usersObj = reader.readObject();
+            reader.close();
+            int i = 0;
+            JsonArray island;
+            for (String location: locations) {
+                island = usersObj.getJsonArray(location);
+                receive[i] = island;
+                i++;
             }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
 
         switch (disaster) {
@@ -191,8 +181,12 @@ public class Email implements Devices {
             try{
                 MimeMessage alertEmail = new MimeMessage(session);
                 alertEmail.setFrom(new InternetAddress(send));
-                for (String to: receive) {
-                    alertEmail.addRecipient(Message.RecipientType.CC, new InternetAddress(to));
+                for (JsonArray island: receive) {
+                    for(int i = 0; i < island.size(); i++) {
+                        JsonObject user = island.getJsonObject(i);
+                        alertEmail.addRecipient(Message.RecipientType.CC, new InternetAddress(user.getString("email")));
+                        System.out.println(user.getString("email"));
+                    }
                 }
                 if(mode == 2) {
                     alertEmail.setSubject(disaster + " Alert");
@@ -210,7 +204,7 @@ public class Email implements Devices {
                 String type;
                 if(mode == 1) type = "\nIt's a drill test\n";
                 else type = "\nIt's NOT a drill\n";
-                System.out.println(type + disaster + " alert has been sent to cellular devices on " + location 
+                System.out.println(type + disaster + " alert has been sent to emails on " + location 
                         + " with message:\n" + message);
             }
             open = false;
