@@ -1,5 +1,6 @@
 import javafx.event.ActionEvent;
 import java.util.*;
+import java.text.SimpleDateFormat;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,9 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import devices.*;
 
 public class FXMLAlertController {
@@ -139,7 +143,14 @@ public class FXMLAlertController {
     }
 
     @FXML protected void handleSendAlertButton(ActionEvent event) {
+        String message;
+        String filename = "Log/realAlert.txt";
+        String username = FXMLLoginController.loginName;
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
         TextInputDialog confirm = new TextInputDialog();
+
+        message = timeStamp + ":" + username + " just sent an alert about ";
+        message +=  alertType;
         confirm.setHeaderText("Are you sure you want to send this warning?\nPlease type \"Affirmative\" to confirm");
         Optional<String> clickedButton = confirm.showAndWait();
         if(clickedButton.isPresent()) {
@@ -149,6 +160,13 @@ public class FXMLAlertController {
                     switch (device) {
                         case "Radio":
                             {
+                                message += " to all radio devices";
+                                try {
+                                    userTracking(filename, message);
+                                }
+                                catch(IOException io) {
+                                    System.out.println(io);
+                                }
                                 // String s is the array form of the linked list checkedLocations
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 Radio radio1 = new Radio(alertType, s);
@@ -158,6 +176,13 @@ public class FXMLAlertController {
                             }
                         case "Television":
                             {
+                                message += " to all television devices";
+                                try {
+                                    userTracking(filename, message);
+                                }
+                                catch(IOException io) {
+                                    System.out.println(io);
+                                }
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 Television television1 = new Television(alertType, s);
                                 television1.warningSET(2);
@@ -166,6 +191,13 @@ public class FXMLAlertController {
                             }
                         case "Siren":
                             {
+                                message += " to all Siren devices";
+                                try {
+                                    userTracking(filename, message);
+                                }
+                                catch(IOException io) {
+                                    System.out.println(io);
+                                }
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 Siren siren1 = new Siren(alertType, s);
                                 siren1.warningSET(2);
@@ -174,6 +206,28 @@ public class FXMLAlertController {
                             }
                         case "SMS":
                             {
+                                message += " to all SMS devices";
+                                try {
+                                    userTracking(filename, message);
+                                }
+                                catch(IOException io) {
+                                    System.out.println(io);
+                                }
+                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                                CellPhones cellphones1 = new CellPhones(alertType, s);
+                                cellphones1.warningSET(2);
+                                cellphones1.send();
+                                break;
+                            }
+                        case "Email":
+                            {
+                                message += " to all Email devices";
+                                try {
+                                    userTracking(filename, message);
+                                }
+                                catch(IOException io) {
+                                    System.out.println(io);
+                                }
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 CellPhones cellphones1 = new CellPhones(alertType, s);
                                 cellphones1.warningSET(2);
@@ -222,6 +276,13 @@ public class FXMLAlertController {
         catch(Exception e) {
             System.out.println("Alert Controller: " + e);
         }
+    }
+    private void userTracking(String filename, String message) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
+        writer.append("\n");
+        writer.append(message);
+
+        writer.close();
     }
 
 
