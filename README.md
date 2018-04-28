@@ -25,3 +25,9 @@ You will need authentication to run this application. Please use the following c
 user: jonathan
 pass: 123456
 ```
+
+In `hawaii-alert-fx/config/islandSMS.json`, update fields to your # number and carrier.
+This will allow sending to your phone in the usage of the app. Unfortunately, T-Mobile is not compatible with this SMS feature.
+
+In `hawaii-alert-fx/config/islandEmails.json`, update fields to your email address.
+This will allow sending to your email in the usage of the app.
