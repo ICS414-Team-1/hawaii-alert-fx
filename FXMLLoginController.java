@@ -22,7 +22,7 @@ import javax.json.JsonArray;
 import javax.json.JsonReader;
 public class FXMLLoginController {
     private Stage primaryStage;
-
+    public static String loginName;
     public FXMLLoginController(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -31,6 +31,7 @@ public class FXMLLoginController {
     @FXML private Text actiontarget;
     @FXML protected void handleLoginButtonAction(ActionEvent event) {
         if(checkValidation(usernameTF.getText(), passwordTF.getText())) {
+            loginName = usernameTF.getText();
             backToMain();
         }
         else {
