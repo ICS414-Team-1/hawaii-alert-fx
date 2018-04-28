@@ -60,7 +60,7 @@
                                                 <ToggleButton toggleGroup="$toggleGroup1" text="Amber Alert"
                                                 prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/amberalert.png'); -fx-content-display: top;"
                                                 GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#changeTitle"/>
-                                                <ToggleButton toggleGroup="$toggleGroup1" text="Missile Strike"
+                                                <ToggleButton toggleGroup="$toggleGroup1" text="Missile Threat"
                                                 prefHeight="75" prefWidth="120" style="-fx-graphic: url('images/missile.png'); -fx-content-display: top;"
                                                 GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#changeTitle"/>
                                                 <ToggleButton toggleGroup="$toggleGroup1" text="Flash Flood"
@@ -83,6 +83,7 @@
                                                 GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
                                             </HBox>
                                         </VBox>
+>>>>>>> master
                                     </GridPane>
                                 </center>
                                 <bottom>
