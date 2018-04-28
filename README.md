@@ -22,6 +22,6 @@ make run
 ## Usage
 You will need authentication to run this application. Please use the following credentials:
 ```
-user: user1
+user: jonathan
 pass: 123456
 ```
