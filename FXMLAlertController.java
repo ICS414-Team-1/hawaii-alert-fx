@@ -147,7 +147,7 @@ public class FXMLAlertController {
             if(capcha.equals("Affirmative")) {
                 for(String device: checkedBoxes) {
                     switch (device) {
-                        case "radio":
+                        case "Radio":
                             {
                                 // String s is the array form of the linked list checkedLocations
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
@@ -156,7 +156,7 @@ public class FXMLAlertController {
                                 radio1.send();
                                 break;
                             }
-                        case "televisions":
+                        case "Television":
                             {
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 Television television1 = new Television(alertType, s);
@@ -164,7 +164,7 @@ public class FXMLAlertController {
                                 television1.send();
                                 break;
                             }
-                        case "siren":
+                        case "Siren":
                             {
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 Siren siren1 = new Siren(alertType, s);
@@ -172,7 +172,7 @@ public class FXMLAlertController {
                                 siren1.send();
                                 break;
                             }
-                        case "cellphones":
+                        case "SMS":
                             {
                                 String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                                 CellPhones cellphones1 = new CellPhones(alertType, s);

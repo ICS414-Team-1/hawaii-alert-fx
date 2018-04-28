@@ -19,7 +19,7 @@
             <padding><Insets top="20" right="10" bottom="20" left="10"/></padding>
             <Text text="Alert" style="-fx-fill: white;">
                 <font>
-                    <Font name="Tahoma" size="80" />
+                    <Font name="Arial" size="80" />
                 </font>
             </Text>
             <Button text="Back to Main"
@@ -104,39 +104,28 @@
                                     </HBox>
                                 </top>
                                 <center>
-                                    <!-- <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center"
+                                    <HBox fx:id="checkboxes" alignment="center" spacing="5"
                                         style="-fx-background-color: white;">
-                                        <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
- -->                                        <HBox fx:id="checkboxes" alignment="center" spacing="5"
-                                                    style="-fx-background-color: white;">
-
-                                              <ToggleButton text="cellphones" style="-fx-graphic:
-                                                   url('images/sms.png'); -fx-content-display: top;"
-                                                   prefHeight="75" prefWidth="120"
-                                                   onAction="#changeDevicesTitle" />
-                                              <ToggleButton text="televisions" style="-fx-graphic:
-                                                    url('images/television.png'); -fx-content-display: top;"
-                                                    prefHeight="75" prefWidth="120"
-                                                    onAction="#changeDevicesTitle" />
-                                              <ToggleButton text="siren" style="-fx-graphic:
-                                                    url('images/siren.png'); -fx-content-display: top;"
-                                                    prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
-                                              <ToggleButton text="radio" style="-fx-graphic:
-                                                    url('images/radio.png'); -fx-content-display: top;"
-                                                    prefHeight="75" prefWidth="120" onAction="#changeDevicesTitle" />
-                                              <!-- <CheckBox text="cellphones" style="-fx-graphic: url('images/sms.png'); -fx-content-display: top;"
-                                                  onAction="#changeDevicesTitle" >0</CheckBox>
-                                              <CheckBox text="televisions"
-                                                  onAction="#changeDevicesTitle" >1</CheckBox>
-                                              <CheckBox text="siren"
-                                                  onAction="#changeDevicesTitle" >2</CheckBox>
-                                              <CheckBox text="radio"
-                                                  onAction="#changeDevicesTitle" >3</CheckBox> -->
-                                        </HBox>
-                                    <!-- </GridPane> -->
+                                        <ToggleButton text="SMS" style="-fx-graphic:
+                                        url('images/sms.png'); -fx-content-display: top;"
+                                        prefHeight="75" prefWidth="120"
+                                        onAction="#changeDevicesTitle" />
+                                        <ToggleButton text="Television" style="-fx-graphic:
+                                        url('images/television.png'); -fx-content-display: top;"
+                                        prefHeight="75" prefWidth="120"
+                                        onAction="#changeDevicesTitle" />
+                                        <ToggleButton text="Siren" style="-fx-graphic:
+                                        url('images/siren.png'); -fx-content-display: top;"
+                                        prefHeight="75" prefWidth="120" 
+                                        onAction="#changeDevicesTitle" />
+                                        <ToggleButton text="Radio" style="-fx-graphic:
+                                        url('images/radio.png'); -fx-content-display: top;"
+                                        prefHeight="75" prefWidth="120" 
+                                        onAction="#changeDevicesTitle" />
+                                    </HBox>
                                 </center>
                                 <bottom>
-                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                    <HBox alignment="center" spacing="15" style="-fx-background-color: white;">
                                         <Button text="Back" onAction="#changePane2"/>
                                         <Button text="Next" onAction="#changePane2"/>
                                     </HBox>
@@ -159,23 +148,23 @@
                                         style="-fx-background-color: white;">
                                         <padding><Insets top="5" right="5" bottom="5" left="5"/></padding>
                                         <HBox fx:id="checkboxesLocations" spacing="20">
-                                          <CheckBox text="Oahu"
+                                            <CheckBox text="Oahu"
                                               onAction="#changeLocationsTitle" >0</CheckBox>
-                                          <CheckBox text="Maui"
+                                            <CheckBox text="Maui"
                                               onAction="#changeLocationsTitle" >1</CheckBox>
-                                          <CheckBox text="Hilo"
+                                            <CheckBox text="Hilo"
                                               onAction="#changeLocationsTitle" >2</CheckBox>
-                                          <CheckBox text="Kauai"
+                                            <CheckBox text="Kauai"
                                               onAction="#changeLocationsTitle" >3</CheckBox>
-                                          <CheckBox text="Molokai"
+                                            <CheckBox text="Molokai"
                                               onAction="#changeLocationsTitle" >4</CheckBox>
-                                          <CheckBox text="Lanai"
+                                            <CheckBox text="Lanai"
                                               onAction="#changeLocationsTitle" >5</CheckBox>
                                         </HBox>
                                     </GridPane>
                                 </center>
                                 <bottom>
-                                    <HBox alignment="center" style="-fx-background-color: white;">
+                                    <HBox alignment="center" spacing="15" style="-fx-background-color: white;">
                                         <Button text="Back" onAction="#changePane3"/>
                                         <Button fx:id="btn3" text="Next" onAction="#changePane3" disable="true"/>
                                     </HBox>

@@ -68,11 +68,11 @@ public class FXMLTestController {
     }
     @FXML protected void changeDevicesTitle(ActionEvent event) {
         Object source = event.getSource();
-        if(((CheckBox)source).isSelected()) {
-            checkedBoxes.add(((CheckBox)source).getText());
+        if(((ToggleButton)source).isSelected()) {
+            checkedBoxes.add(((ToggleButton)source).getText());
         }
         else {
-            checkedBoxes.remove(((CheckBox)source).getText());
+            checkedBoxes.remove(((ToggleButton)source).getText());
         }
         t2.setText("Select devices: " + checkedBoxes.toString());
         setDisabled();
@@ -135,7 +135,7 @@ public class FXMLTestController {
     @FXML protected void handleSendAlertButton(ActionEvent event) {
         for(String device: checkedBoxes) {
             switch (device) {
-                case "radio":
+                case "Radio":
                     {
                         // String s is the array form of the linked list checkedLocations
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
@@ -144,7 +144,7 @@ public class FXMLTestController {
                         radio1.send();
                         break;
                     }
-                case "televisions":
+                case "Television":
                     {
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                         Television television1 = new Television(alertType, s);
@@ -152,7 +152,7 @@ public class FXMLTestController {
                         television1.send();
                         break;
                     }
-                case "siren":
+                case "Siren":
                     {
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                         Siren siren1 = new Siren(alertType, s);
@@ -160,7 +160,7 @@ public class FXMLTestController {
                         siren1.send();
                         break;
                     }
-                case "cellphones":
+                case "SMS":
                     {
                         String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                         CellPhones cellphones1 = new CellPhones(alertType, s);
