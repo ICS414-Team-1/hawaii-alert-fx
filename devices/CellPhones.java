@@ -7,9 +7,9 @@ package devices;
 
 /**
  *
- *
+ * @author david
  */
-public class Television implements Devices {
+public class CellPhones implements Devices {
 
     private boolean open;
     private int mode; // 0 = system not set, 1 = test alert mode, 2 = real alert mode.
@@ -17,15 +17,15 @@ public class Television implements Devices {
     private String locations[];
     private String message;
 
-    public Television(String disaster, String[] locations, String message, boolean open, int mode) {
-      this.open = open;
-      this.disaster = disaster;
-      this.locations = locations;
-      this.message = message;
-      this.mode = 0;
+    public CellPhones(String disaster, String[] locations, String message, boolean open, int mode) {
+        this.open = open;
+        this.disaster = disaster;
+        this.locations = locations;
+        this.message = message;
+        this.mode = 0;
+        System.out.println(locations[0] + locations[1]);
     }
-
-    public Television(String disaster, String[] locations) {
+    public CellPhones(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
         open = true;
@@ -106,8 +106,8 @@ public class Television implements Devices {
 
     /**
      *
-     * @param devicemode is set to 0, 1, or 2. 0 = no mode has been set,
-     * 1 = test alert mode set, and 2 = real alert mode set.
+     * @param devicemode is set to 0, 1, or 2. 0 = no mode has been set, 1 =
+     * test alert mode set, and 2 = real alert mode set.
      */
     @Override
     public void warningSET(int devicemode) {
@@ -123,7 +123,7 @@ public class Television implements Devices {
                 String type;
                 if(mode == 1) type = "\nIt's a drill test\n";
                 else type = "\nIt's NOT a drill\n";
-                System.out.println(type + disaster + " alert has been sent to television devices on " + location 
+                System.out.println(type + disaster + " alert has been sent to cellular devices on " + location 
                         + " with message:\n" + message);
             }
             open = false;
@@ -140,5 +140,5 @@ public class Television implements Devices {
         message = null;
         return false;
     }
-
+   
 }

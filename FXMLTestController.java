@@ -134,20 +134,42 @@ public class FXMLTestController {
 
     @FXML protected void handleSendAlertButton(ActionEvent event) {
         for(String device: checkedBoxes) {
-            if(device.equals("radio")) {
-                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                Radio radio1 = new Radio(alertType, s);
-                radio1.warningSET(1);
-                radio1.send();
-            }
-            else if(device.equals("televisions")) {
-                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                Television television1 = new Television(alertType, s);
-                television1.warningSET(1);
-                television1.send();
-            }
-            else {
-                //Other devices will be implementing later
+            switch (device) {
+                case "radio":
+                    {
+                        // String s is the array form of the linked list checkedLocations
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        Radio radio1 = new Radio(alertType, s);
+                        radio1.warningSET(1);
+                        radio1.send();
+                        break;
+                    }
+                case "televisions":
+                    {
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        Television television1 = new Television(alertType, s);
+                        television1.warningSET(1);
+                        television1.send();
+                        break;
+                    }
+                case "siren":
+                    {
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        Siren siren1 = new Siren(alertType, s);
+                        siren1.warningSET(1);
+                        siren1.send();
+                        break;
+                    }
+                case "cellphones":
+                    {
+                        String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                        CellPhones cellphones1 = new CellPhones(alertType, s);
+                        cellphones1.warningSET(1);
+                        cellphones1.send();
+                        break;
+                    }
+                default:
+                    break;
             }
 
         }

@@ -44,48 +44,58 @@ public class Radio implements Devices {
     public void configure(String disaster, String[] locations) {
         this.disaster = disaster;
         this.locations = locations;
+        String locString = String.join(", ", locations);
         switch (disaster) {
             case "Missile Threat":
                 message = "There is an imminent threat of a "
                         + "missile attack, seek shelter immedietly in concrete "
                         + "buildings or underground. The following locations are "
-                        + "at risk: " + locations;
+                        + "at risk: " + locString;
+                break;
             case "Active Shooter":
                 message = "There is an active shooter "
-                        + "situation in the following areas: " + locations + ". The"
+                        + "situation in the following areas: " + locString + ". The"
                         + "authorities have been dispatched.";
+                break;
             case "Bomb Threat":
                 message = "A bomb threat has been made "
-                        + "threatening the following areas: " + locations + ". The "
+                        + "threatening the following areas: " + locString + ". The "
                         + "autorities have been dispatched, and the area is being "
                         + "evacuated.";
+                break;
             case "Amber Alert":
                 message = "An Amber Alert is being issued. A "
                         + "child has gone missing and may be in the area of: "
-                        + locations + ". For further information, please visit "
-                        + "*amberalertwebsite* and if you have any information, "
+                        + locString + ". If you have any information, "
                         + "please call 911.";
+                break;
             case "Tsunami":
                 message = "A tsunami is imminent and threatening "
-                        + "the following locations: " + locations + ". Seek shelter"
+                        + "the following locations: " + locString + ". Seek shelter"
                         + " at high elevations and away from the ocean. Further "
-                        + "information may be found at *noaawebsite*.";
+                        + "information may be found at www.prh.noaa.gov/hnl/watchwarn/";
+                break;
             case "Hurricane":
                 message = "A hurricane is imminent and threating "
-                        + "the following locations: " + locations + ". Seek shelter"
+                        + "the following locations: " + locString + ". Seek shelter"
                         + " at high elevations and away from bodies of water. "
-                        + "Further information may be found at *noaawebsite*.";
+                        + "Further information may be found at www.prh.noaa.gov/hnl/watchwarn/";
+                break;
             case "Flash Flood":
                 message = "A flash flood warning is being "
-                        + "issued for the following locations: " + locations
+                        + "issued for the following locations: " + locString
                         + ". Stay away from fast moving bodies of water. Do not "
                         + "attempt to cross them in your vehicles. Seek higher "
-                        + "elevations. For more information visit *noaawebsite*.";
+                        + "elevations. For more information visit www.prh.noaa.gov/hnl/watchwarn/";
+                break;
             case "Tropical Storm":
                 message = "A tropical storm warning is "
-                        + "being issued for the following locations: " + locations
+                        + "being issued for the following locations: " + locString
                         + ". Seek shelter indoors, beware of fast moving bodies of "
-                        + "water. For more information visit *noaawebsite*.";
+                        + "water. For more information visit www.prh.noaa.gov/hnl/watchwarn/";
+                break;
+            default:
+                message = null;
         }
     }
 
@@ -106,13 +116,15 @@ public class Radio implements Devices {
 
     @Override
     public boolean send() {
+        configure(disaster, locations);
         if (open && (mode != 0) && (disaster != null) && (locations != null) && (message != null)) {
             //Code for sending message through radio hardware.
             for (String location : locations) {
-                String type = "";
-                if(mode == 1) type = "\nIt's a drill test";
-                else type = "\nIt's NOT a drill";
-                System.out.println("Alert has been sent to radio devices with message:\n" + message + location + type);
+                String type;
+                if(mode == 1) type = "\nIt's a drill test\n";
+                else type = "\nIt's NOT a drill\n";
+                System.out.println(type + disaster + " alert has been sent to radio devices on " + location 
+                        + " with message:\n" + message);
             }
             open = false;
             mode = 0;
