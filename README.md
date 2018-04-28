@@ -26,8 +26,19 @@ user: jonathan
 pass: 123456
 ```
 
-In `hawaii-alert-fx/config/islandSMS.json`, update fields to your # number and carrier.
+In `hawaii-alert-fx/config/islandSMS.json`, update fields to your cellular number and carrier.
 This will allow sending to your phone in the usage of the app. Unfortunately, T-Mobile is not compatible with this SMS feature.
+Here are the list of carriers implemented:
+```
+Verizon
+Alltel
+AT&T
+T-Mobile
+Virgin Mobile
+Sprint
+Nextel
+US Cellular
+```
 
 In `hawaii-alert-fx/config/islandEmails.json`, update fields to your email address.
 This will allow sending to your email in the usage of the app.
