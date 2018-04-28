@@ -159,88 +159,80 @@ public class FXMLAlertController {
                 for(String device: checkedBoxes) {
                     switch (device) {
                         case "Radio":
-                            {
-                                message += " to all radio devices";
-                                try {
-                                    userTracking(filename, message);
-                                }
-                                catch(IOException io) {
-                                    System.out.println(io);
-                                }
-                                // String s is the array form of the linked list checkedLocations
-                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                                Radio radio1 = new Radio(alertType, s);
-                                radio1.warningSET(2);
-                                radio1.send();
-                                break;
+                        {
+                            message += " to all radio devices";
+                            try {
+                                userTracking(filename, message);
                             }
+                            catch(IOException io) {
+                                System.out.println(io);
+                            }
+                            // String s is the array form of the linked list checkedLocations
+                            String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                            Radio radio1 = new Radio(alertType, s);
+                            radio1.warningSET(2);
+                            radio1.send();
+                            break;
+                        }
                         case "Television":
-                            {
-                                message += " to all television devices";
-                                try {
-                                    userTracking(filename, message);
-                                }
-                                catch(IOException io) {
-                                    System.out.println(io);
-                                }
-                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                                Television television1 = new Television(alertType, s);
-                                television1.warningSET(2);
-                                television1.send();
-                                break;
+                        {
+                            message += " to all television devices";
+                            try {
+                                userTracking(filename, message);
                             }
+                            catch(IOException io) {
+                                System.out.println(io);
+                            }
+                            String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                            Television television1 = new Television(alertType, s);
+                            television1.warningSET(2);
+                            television1.send();
+                            break;
+                        }
                         case "Siren":
-                            {
-                                message += " to all Siren devices";
-                                try {
-                                    userTracking(filename, message);
-                                }
-                                catch(IOException io) {
-                                    System.out.println(io);
-                                }
-                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                                Siren siren1 = new Siren(alertType, s);
-                                siren1.warningSET(2);
-                                siren1.send();
-                                break;
+                        {
+                            message += " to all Siren devices";
+                            try {
+                                userTracking(filename, message);
                             }
+                            catch(IOException io) {
+                                System.out.println(io);
+                            }
+                            String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                            Siren siren1 = new Siren(alertType, s);
+                            siren1.warningSET(2);
+                            siren1.send();
+                            break;
+                        }
                         case "SMS":
-                            {
-                                message += " to all SMS devices";
-                                try {
-                                    userTracking(filename, message);
-                                }
-                                catch(IOException io) {
-                                    System.out.println(io);
-                                }
-                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                                CellPhones cellphones1 = new CellPhones(alertType, s);
-                                cellphones1.warningSET(2);
-                                cellphones1.send();
-                                break;
+                        {
+                            message += " to all SMS devices";
+                            try {
+                                userTracking(filename, message);
                             }
-                        case "Email":
-                            {
-                                message += " to all Email devices";
-                                try {
-                                    userTracking(filename, message);
-                                }
-                                catch(IOException io) {
-                                    System.out.println(io);
-                                }
-                                String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                                CellPhones cellphones1 = new CellPhones(alertType, s);
-                                cellphones1.warningSET(2);
-                                cellphones1.send();
-                                break;
+                            catch(IOException io) {
+                                System.out.println(io);
                             }
+                            String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
+                            CellPhones cellphones1 = new CellPhones(alertType, s);
+                            cellphones1.warningSET(2);
+                            cellphones1.send();
+                            break;
+                        }
                         case "Email":
                         {
+                            message += " to all Email devices";
+                            try {
+                                userTracking(filename, message);
+                            }
+                            catch(IOException io) {
+                                System.out.println(io);
+                            }
                             String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                            Email email1 = new Email(alertType, s);
-                            email1.warningSET(2);
-                            email1.send();
-                           break;
+                            CellPhones cellphones1 = new CellPhones(alertType, s);
+                            cellphones1.warningSET(2);
+                            cellphones1.send();
+                            break;
                         }
                         default:
                            break;
