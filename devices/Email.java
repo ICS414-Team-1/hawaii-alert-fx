@@ -185,7 +185,7 @@ public class Email implements Devices {
                     for(int i = 0; i < island.size(); i++) {
                         JsonObject user = island.getJsonObject(i);
                         alertEmail.addRecipient(Message.RecipientType.CC, new InternetAddress(user.getString("email")));
-                        System.out.println(user.getString("email"));
+                        System.out.println(user.getString("name"));
                     }
                 }
                 if(mode == 2) {
