@@ -184,7 +184,7 @@ public class FXMLAlertController {
                         {
                             String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
                             Email email1 = new Email(alertType, s);
-                            email1.warningSET(1);
+                            email1.warningSET(2);
                             email1.send();
                            break;
                         }

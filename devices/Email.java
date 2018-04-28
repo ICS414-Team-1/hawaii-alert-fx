@@ -23,6 +23,7 @@ public class Email implements Devices {
     private String message;
     private String receive[];
     private String send;
+    private String sendPass;
     private String host;
     private Properties properties;
     private Session session;
@@ -57,11 +58,24 @@ public class Email implements Devices {
         this.disaster = disaster;
         this.locations = locations;
         String locString = String.join(", ", locations);
-        send = "thevastearwig@hotmail.com";
-        host = "localhost";
+        send = "dchtesteremail@gmail.com";
+        sendPass = "AlertSystem";
+        host = "smtp.gmail.com";
         properties = System.getProperties();
         properties.setProperty("mail.smtp.host", host);
-        session = Session.getDefaultInstance(properties);
+        properties.setProperty("mail.password", sendPass);
+        properties.setProperty("mail.user", send);
+        properties.setProperty("mail.smtp.socketFactory.port", "465");
+        properties.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.port", "805");
+        session = Session.getDefaultInstance(properties,
+                new javax.mail.Authenticator() {
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(send, sendPass);
+                    }
+                });
         int i = 0;
         for (String location: locations) {
             switch (location) {
@@ -110,7 +124,7 @@ public class Email implements Devices {
                 break;
             case "Active Shooter":
                 message = "There is an active shooter "
-                        + "situation in the following areas: " + locString + ". The"
+                        + "situation in the following areas: " + locString + ". The "
                         + "authorities have been dispatched.";
                 break;
             case "Bomb Threat":
@@ -178,15 +192,15 @@ public class Email implements Devices {
                 MimeMessage alertEmail = new MimeMessage(session);
                 alertEmail.setFrom(new InternetAddress(send));
                 for (String to: receive) {
-                    alertEmail.addRecipient(Message.RecipientType.BCC, new InternetAddress(to));
+                    alertEmail.addRecipient(Message.RecipientType.CC, new InternetAddress(to));
                 }
-                if(mode == 1) {
+                if(mode == 2) {
                     alertEmail.setSubject(disaster + " Alert");
                 }else {
-                    alertEmail.setSubject("*TEST* " + disaster + "Alert" + "*TEST*");
+                    alertEmail.setSubject("*TEST* " + disaster + " Alert" + " *TEST*");
                 }
                 alertEmail.setText(message);
-                
+                alertEmail.setSentDate(new Date());
                 Transport.send(alertEmail);
                 System.out.println("Email sent successfully");
             }catch (MessagingException mex) {
