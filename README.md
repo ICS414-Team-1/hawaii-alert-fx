@@ -22,8 +22,8 @@ make run
 ## Usage
 You will need authentication to run this application. Please use the following credentials:
 ```
-user: jonathan
-pass: 123456
+user: test
+pass: pass
 ```
 
 In `hawaii-alert-fx/config/islandSMS.json`, update fields to your cellular number and carrier.

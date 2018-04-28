@@ -5,6 +5,10 @@
             "password": "123456"
         },
         {
+            "username": "test",
+            "password": "pass"
+        },
+        {
             "username": "test1",
             "password": "123456"
         },

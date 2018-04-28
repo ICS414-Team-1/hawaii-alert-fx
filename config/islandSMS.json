@@ -2,48 +2,48 @@
     "Oahu": [
         {
             "name": "Tester1 Oahu",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         },
         {
             "name": "Tester2 Oahu",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ],
     "Maui": [
         {
             "name": "Tester Maui",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ],
     "Hilo": [
         {
             "name": "Tester Hilo",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ],
     "Kauai": [
         {
             "name": "Tester Kauai",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ],
     "Molokai": [
         {
             "name": "Tester Molokai",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ],
     "Lanai": [
         {
             "name": "Tester Lanai",
-            "phone number": "8083420252",
-            "company": "Verizon"
+            "phone number": "##########",
+            "company": "YOUR_CARRIER"
         }
     ]
 }

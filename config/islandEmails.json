@@ -2,41 +2,41 @@
     "Oahu": [
         {
             "name": "Tester1 Oahu",
-            "email": "dherman+oahualert1@hawaii.edu"
+            "email": "YOUR_EMAIL"
         },
         {
             "name": "Tester2 Oahu",
-            "email": "dherman+oahualert2@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ],
     "Maui": [
         {
             "name": "Tester Maui",
-            "email": "dherman+mauialert@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ],
     "Hilo": [
         {
             "name": "Tester Hilo",
-            "email": "dherman+Hiloalert@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ],
     "Kauai": [
         {
             "name": "Tester Kauai",
-            "email": "dherman+kauaialert@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ],
     "Molokai": [
         {
             "name": "Tester Molokai",
-            "email": "dherman+molokaialert@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ],
     "Lanai": [
         {
             "name": "Tester Lanai",
-            "email": "dherman+lanaialert@hawaii.edu"
+            "email": "YOUR_EMAIL"
         }
     ]
 }
