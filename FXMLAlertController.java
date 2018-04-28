@@ -229,9 +229,9 @@ public class FXMLAlertController {
                                 System.out.println(io);
                             }
                             String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                            CellPhones cellphones1 = new CellPhones(alertType, s);
-                            cellphones1.warningSET(2);
-                            cellphones1.send();
+                            Email email1 = new Email(alertType, s);
+                            email1.warningSET(2);
+                            email1.send();
                             break;
                         }
                         default:

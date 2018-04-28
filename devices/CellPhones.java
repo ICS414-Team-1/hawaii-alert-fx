@@ -243,7 +243,7 @@ public class CellPhones implements Devices {
                 String type;
                 if(mode == 1) type = "\nIt's a drill test\n";
                 else type = "\nIt's NOT a drill\n";
-                System.out.println(type + disaster + " alert has been sent to emails on " + location 
+                System.out.println(type + disaster + " alert has been sent to SMS devices on " + location 
                         + " with message:\n" + message);
             }
             open = false;

@@ -217,9 +217,9 @@ public class FXMLTestController {
                         System.out.println(io);
                     }
                     String[] s = checkedLocations.toArray(new String[checkedLocations.size()]);
-                    CellPhones cellphones1 = new CellPhones(alertType, s);
-                    cellphones1.warningSET(1);
-                    cellphones1.send();
+                    Email email1 = new Email(alertType, s);
+                    email1.warningSET(1);
+                    email1.send();
                     break;
                 }
                 default:
