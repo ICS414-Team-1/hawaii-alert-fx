@@ -83,7 +83,6 @@
                                                 GridPane.columnIndex="4" GridPane.rowIndex="1" onAction="#changeTitle"/>
                                             </HBox>
                                         </VBox>
->>>>>>> master
                                     </GridPane>
                                 </center>
                                 <bottom>
@@ -103,26 +102,30 @@
                                         <Text fx:id="actiontarget2" text="Please select the devices to send alert to:" />
                                     </HBox>
                                 </top>
-                                <center>
-                                    <HBox fx:id="checkboxes" alignment="center" spacing="5"
-                                        style="-fx-background-color: white;">
-                                        <ToggleButton text="SMS" style="-fx-graphic:
-                                        url('images/sms.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120"
-                                        onAction="#changeDevicesTitle" />
-                                        <ToggleButton text="Television" style="-fx-graphic:
-                                        url('images/television.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120"
-                                        onAction="#changeDevicesTitle" />
-                                        <ToggleButton text="Siren" style="-fx-graphic:
-                                        url('images/siren.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120" 
-                                        onAction="#changeDevicesTitle" />
-                                        <ToggleButton text="Radio" style="-fx-graphic:
-                                        url('images/radio.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120" 
-                                        onAction="#changeDevicesTitle" />
-                                    </HBox>
+                                    <center>
+                                        <HBox fx:id="checkboxes" alignment="center" spacing="5"
+                                            style="-fx-background-color: white;">
+                                            <ToggleButton text="SMS" style="-fx-graphic:
+                                            url('images/sms.png'); -fx-content-display: top;"
+                                            prefHeight="70" prefWidth="110"
+                                            onAction="#changeDevicesTitle" />
+                                            <ToggleButton text="Television" style="-fx-graphic:
+                                            url('images/television.png'); -fx-content-display: top;"
+                                            prefHeight="70" prefWidth="110"
+                                            onAction="#changeDevicesTitle" />
+                                            <ToggleButton text="Siren" style="-fx-graphic:
+                                            url('images/siren.png'); -fx-content-display: top;"
+                                            prefHeight="70" prefWidth="110"
+                                            onAction="#changeDevicesTitle" />
+                                            <ToggleButton text="Radio" style="-fx-graphic:
+                                            url('images/radio.png'); -fx-content-display: top;"
+                                            prefHeight="70" prefWidth="110"
+                                            onAction="#changeDevicesTitle" />
+                                            <ToggleButton text="Email" style="-fx-graphic:
+                                            url('images/email.png'); -fx-content-display: top;"
+                                            prefHeight="70" prefWidth="110"
+                                            onAction="#changeDevicesTitle" />
+                                        </HBox>
                                 </center>
                                 <bottom>
                                     <HBox alignment="center" spacing="15" style="-fx-background-color: white;">

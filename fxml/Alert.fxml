@@ -108,19 +108,23 @@
                                         style="-fx-background-color: white;">
                                         <ToggleButton text="SMS" style="-fx-graphic:
                                         url('images/sms.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120"
+                                        prefHeight="70" prefWidth="110"
                                         onAction="#changeDevicesTitle" />
                                         <ToggleButton text="Television" style="-fx-graphic:
                                         url('images/television.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120"
+                                        prefHeight="70" prefWidth="110"
                                         onAction="#changeDevicesTitle" />
                                         <ToggleButton text="Siren" style="-fx-graphic:
                                         url('images/siren.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120" 
+                                        prefHeight="70" prefWidth="110"
                                         onAction="#changeDevicesTitle" />
                                         <ToggleButton text="Radio" style="-fx-graphic:
                                         url('images/radio.png'); -fx-content-display: top;"
-                                        prefHeight="75" prefWidth="120" 
+                                        prefHeight="70" prefWidth="110"
+                                        onAction="#changeDevicesTitle" />
+                                        <ToggleButton text="Email" style="-fx-graphic:
+                                        url('images/email.png'); -fx-content-display: top;"
+                                        prefHeight="70" prefWidth="110"
                                         onAction="#changeDevicesTitle" />
                                     </HBox>
                                 </center>
