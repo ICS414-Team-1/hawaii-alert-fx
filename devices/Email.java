@@ -189,9 +189,17 @@ public class Email implements Devices {
                     }
                 }
                 if(mode == 2) {
-                    alertEmail.setSubject(disaster + " Alert");
+                    if (!disaster.equals("Amber Alert")) {
+                        alertEmail.setSubject(disaster + " Alert");
+                    }else {
+                        alertEmail.setSubject(disaster);
+                    }                
                 }else {
-                    alertEmail.setSubject("*TEST* " + disaster + " Alert" + " *TEST*");
+                    if (!disaster.equals("Amber Alert")) {
+                        alertEmail.setSubject("*TEST* " + disaster + " Alert" + " *TEST*");
+                    }else {
+                        alertEmail.setSubject("*TEST* " + disaster + " *TEST*");
+                    }        
                 }
                 alertEmail.setText(message);
                 alertEmail.setSentDate(new Date());

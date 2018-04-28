@@ -5,3 +5,12 @@
 2018.04.27.19.53.41:jonathan just sent an alert about Missile Threat to all SMS devices
 2018.04.27.19.56.06:jonathan just sent an alert about Amber Alert to all SMS devices
 2018.04.27.19.56.06:jonathan just sent an alert about Amber Alert to all SMS devices to all television devices
+2018.04.27.20.17.04:jonathan just sent an alert about Tsunami to all SMS devices
+2018.04.27.20.17.23:jonathan just sent an alert about Amber Alert to all SMS devices
+2018.04.27.20.17.35:jonathan just sent an alert about Missile Threat to all SMS devices
+2018.04.27.20.17.49:jonathan just sent an alert about Flash Flood to all SMS devices
+2018.04.27.20.19.32:jonathan just sent an alert about Hurricane to all SMS devices
+2018.04.27.20.19.47:jonathan just sent an alert about Flash Flood to all SMS devices
+2018.04.27.20.21.50:jonathan just sent an alert about Active Shooter to all SMS devices
+2018.04.27.20.22.02:jonathan just sent an alert about Bomb Threat to all SMS devices
+2018.04.27.20.22.13:jonathan just sent an alert about Tropical Storm to all SMS devices

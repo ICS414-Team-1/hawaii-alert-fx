@@ -108,51 +108,43 @@ public class CellPhones implements Devices {
         switch (disaster) {
             case "Missile Threat":
                 message = "There is an imminent threat of a "
-                        + "missile attack, seek shelter immedietly in concrete "
-                        + "buildings or underground. The following locations are "
-                        + "at risk: " + locString;
+                        + "missile attack, seek shelter immedietly. "
+                        + "Applies to: " + locString;
                 break;
             case "Active Shooter":
                 message = "There is an active shooter "
-                        + "situation in the following areas: " + locString + ". The "
+                        + "situation applying to: " + locString + ". The "
                         + "authorities have been dispatched.";
                 break;
             case "Bomb Threat":
                 message = "A bomb threat has been made "
-                        + "threatening the following areas: " + locString + ". The "
-                        + "autorities have been dispatched, and the area is being "
-                        + "evacuated.";
+                        + "threatening: " + locString + ". Evacuate these areas.";
                 break;
             case "Amber Alert":
                 message = "An Amber Alert is being issued. A "
-                        + "child has gone missing and may be in the area of: "
+                        + "child has gone missing near: "
                         + locString + ". If you have any information, "
                         + "please call 911.";
                 break;
             case "Tsunami":
-                message = "A tsunami is imminent and threatening "
-                        + "the following locations: " + locString + ". Seek shelter"
-                        + " at high elevations and away from the ocean. Further "
-                        + "information may be found at www.prh.noaa.gov/hnl/watchwarn/";
+                message = "A tsunami is imminent and threatening: " + locString 
+                        + ". Seek shelter"
+                        + " at high elevations and away from the ocean.";
                 break;
             case "Hurricane":
-                message = "A hurricane is imminent and threating "
-                        + "the following locations: " + locString + ". Seek shelter"
-                        + " at high elevations and away from bodies of water. "
-                        + "Further information may be found at www.prh.noaa.gov/hnl/watchwarn/";
+                message = "A hurricane is imminent and threatening: "
+                        + locString + ". Seek shelter"
+                        + " at high elevations and away from bodies of water.";
                 break;
             case "Flash Flood":
                 message = "A flash flood warning is being "
-                        + "issued for the following locations: " + locString
-                        + ". Stay away from fast moving bodies of water. Do not "
-                        + "attempt to cross them in your vehicles. Seek higher "
-                        + "elevations. For more information visit www.prh.noaa.gov/hnl/watchwarn/";
+                        + "issued for: " + locString
+                        + ". Stay away from fast moving bodies of water.";
                 break;
             case "Tropical Storm":
                 message = "A tropical storm warning is "
-                        + "being issued for the following locations: " + locString
-                        + ". Seek shelter indoors, beware of fast moving bodies of "
-                        + "water. For more information visit www.prh.noaa.gov/hnl/watchwarn/";
+                        + "being issued for: " + locString
+                        + ". Seek shelter indoors.";
                 break;
             default:
                 message = null;
@@ -228,9 +220,17 @@ public class CellPhones implements Devices {
                     }
                 }
                 if(mode == 2) {
-                    alertEmail.setSubject(disaster + " Alert");
+                    if (!disaster.equals("Amber Alert")) {
+                        alertEmail.setSubject(disaster + " Alert");
+                    }else {
+                        alertEmail.setSubject(disaster);
+                    }
                 }else {
-                    alertEmail.setSubject("*TEST* " + disaster + " Alert" + " *TEST*");
+                    if (!disaster.equals("Amber Alert")) {
+                        alertEmail.setSubject("*TEST* " + disaster + " Alert" + " *TEST*");
+                    }else {
+                        alertEmail.setSubject("*TEST* " + disaster + " *TEST*");
+                    }
                 }
                 alertEmail.setText(message);
                 alertEmail.setSentDate(new Date());
